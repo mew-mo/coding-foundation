@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Basic Statements & Variables</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style>
+      .content {
+        border: 1px solid #888;
+        width: 50%;
+        margin: 0 auto;
+        padding: 25px;
+        margin-top: 80px;
+      }
+
+      button {
+        margin-top: 20px;
+      }
+
+      .cost {
+        font-size: 24px;
+      }
+
+      span {
+        font-weight: 200;
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <div class="content" id="content">
+      <h2>Apple Price Total</h2>
+      <div id="cost" class="cost">
+        Cost: $<span id="priceNumber">5</span> per apple
+      </div>
+      <button type="button" class="btn btn-primary" id="calculate">Calculate</button>
+    </div>
+
+    <div class="content">
+      <h1>Student 1</h1>
+      <h2>Name: <span id="name">blank</span></h2>
+      <h2>Movie: <span id="movie">blank</span></h2>
+      <h2>Food: <span id="food">blank</span></h2>
+      <button type="button" class="btn btn-primary" id="update">Update</button>
+    </div>
+
+    <div class="content">
+      <h1>Student 2</h1>
+      <h2>Name: <span id="nameStudentTwo">blank</span></h2>
+      <h2>Movie: <span id="movieStudentTwo">blank</span></h2>
+      <h2>Food: <span id="foodStudentTwo">blank</span></h2>
+      <button type="button" class="btn btn-primary" id="updateStudentTwo">Update</button>
+    </div>
+
+    <div class="content">
+      <h1>Student 3</h1>
+      <h2>Name: <span id="nameStudentThree">blank</span></h2>
+      <h2>Movie: <span id="movieStudentThree">blank</span></h2>
+      <h2>Food: <span id="foodStudentThree">blank</span></h2>
+      <button type="button" class="btn btn-primary" id="updateStudentThree">Update</button>
+    </div>
+
+    <script>
+
+      // ---------- SECTION A
+
+      // a variable! (grabbing one particular things is best for IDs!!! classes for css! BARKS)
+      // var getCost = document.getElementById('cost');
+      //
+      // // logs out the cost
+      // // 1. this is a console.log
+      // console.log(getCost);
+      //
+      // // 2. this is a console.dir
+      // console.dir(getCost);
+
+      // welcome to camelcase world these r 3 variables we want them to interact with the DOM !!!
+      // // this variable is a string (text data)
+      // var newApplePrice = 'Cost: $15 per apple';
+      //
+      // // var expensiveApplePrice = 'Cost: $100 per apple';
+      // //
+      // // var bargainApplePrice = 'Cost: $1 per apple';
+      //
+      // // 1 - get the element you want to change. get it from the dom !!
+      // var getCost = document.getElementById('cost');
+      //
+      // // 2 - check we have the element
+      // console.dir(getCost.textContent);
+      //
+      // // 3 - change the text in the element
+      // getCost.textContent = newApplePrice;
+
+      // ----------- SECTION B
+
+      // orange is a number, green is a string. wow
+      // var newPrice = 10;
+      // // var newPriceAsString = '10';
+      //
+      // var getPriceNumber = document.getElementById('priceNumber');
+      // console.log(getPriceNumber.textContent);
+      //
+      // getPriceNumber.textContent = newPrice;
+
+      // ---------- SECTION C
+
+      // console.dir(window);
+
+      // window onlick function
+      // window.onclick = function () {
+      //   var newPrice = 10;
+      //   var newPriceAsString = '10';
+      //
+      //   var getPriceNumber = document.getElementById('priceNumber');
+      //   console.log(getPriceNumber.textContent);
+      //
+      //   getPriceNumber.textContent = newPrice;
+      // };
+      // window onlick function ENDS
+
+      var getButton = document.getElementById('calculate');
+
+      getButton.onclick = function () {
+        // this is the new price
+          var newPrice = 10;
+          var newPriceAsString = '10';
+          // get the price span
+          var getPriceNumber = document.getElementById('priceNumber');
+          console.log(getPriceNumber.textContent);
+          // update the price
+          getPriceNumber.textContent = newPrice;
+      };
+
+      // ---------- SECTION D
+
+      var getName = document.getElementById('name');
+      var getMovie = document.getElementById('movie');
+      var getFood = document.getElementById('food');
+      var getUpdate = document.getElementById('update');
+
+      var newName = 'Name Lastname';
+      var newMovie = 'a good movie title';
+      var newFood = 'a good food';
+
+      // update onclick function
+      // getUpdate.onclick = function () {
+      //
+      //   console.log(getName.textContent);
+      //   console.log(getMovie.textContent);
+      //   console.log(getFood.textContent);
+      //
+      //   getName.textContent = newName;
+      //   getMovie.textContent = newMovie;
+      //   getFood.textContent = newFood;
+      //
+      // };
+    // update onlick function ENDS
+
+      var getNameStudentTwo = document.getElementById('nameStudentTwo');
+      var getMovieStudentTwo = document.getElementById('movieStudentTwo');
+      var getFoodStudentTwo = document.getElementById('foodStudentTwo');
+      var getUpdateStudentTwo = document.getElementById('updateStudentTwo');
+
+      var newNameStudentTwo = 'Second student';
+      var newMovieStudentTwo = 'are there even any good movies';
+      var newFoodStudentTwo = 'fooooooood';
+
+      // update onclick function
+      // getUpdateStudentTwo.onclick = function () {
+      //
+      //   console.log(getNameStudentTwo.textContent);
+      //   console.log(getMovieStudentTwo.textContent);
+      //   console.log(getFoodStudentTwo.textContent);
+      //
+      //   getNameStudentTwo.textContent = newNameStudentTwo;
+      //   getMovieStudentTwo.textContent = newMovieStudentTwo;
+      //   getFoodStudentTwo.textContent = newFoodStudentTwo;
+      //
+      // };
+
+      var getNameStudentThree = document.getElementById('nameStudentThree');
+      var getMovieStudentThree = document.getElementById('movieStudentThree');
+      var getFoodStudentThree = document.getElementById('foodStudentThree');
+      var getUpdateStudentThree = document.getElementById('updateStudentThree');
+
+      var newNameStudentThree = 'third student';
+      var newMovieStudentThree = 'there are no good movies';
+      var newFoodStudentThree = 'ALL';
+
+      // update onclick function
+      // getUpdateStudentThree.onclick = function () {
+      //
+      //   console.log(getNameStudentThree.textContent);
+      //   console.log(getMovieStudentThree.textContent);
+      //   console.log(getFoodStudentThree.textContent);
+      //
+      //   getNameStudentThree.textContent = newNameStudentThree;
+      //   getMovieStudentThree.textContent = newMovieStudentThree;
+      //   getFoodStudentThree.textContent = newFoodStudentThree;
+      //
+      // };
+
+      // ---------- CHALLENGE
+
+      // button.onlick = function () {
+      //
+      //
+      // }
+
+      setTimeout(function() {
+        getNameStudentThree.textContent = newNameStudentThree
+        getMovieStudentThree.textContent = newMovieStudentThree;
+        getFoodStudentThree.textContent = newFoodStudentThree;
+
+        getNameStudentTwo.textContent = newNameStudentTwo;
+        getMovieStudentTwo.textContent = newMovieStudentTwo;
+        getFoodStudentTwo.textContent = newFoodStudentTwo;
+
+        getName.textContent = newName;
+        getMovie.textContent = newMovie;
+        getFood.textContent = newFood;
+
+      }, 3000);
+
+      // var updateAll = document.getElementById('update');
+      // var updateAll = document.getElementById('updateStudentTwo');
+      // var updateAll = document.getElementById('updateStudentThree');
+      //
+      // updateAll.onclick = function () {
+      //
+      //   setTimeout(function() { getName.textContent = newName }, 3000);
+      //
+      // }
+
+    </script>
+
+  </body>
+</html>

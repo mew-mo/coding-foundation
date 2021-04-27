@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Arrays</title>
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<style>
+		/* CSS Here */
+		body {
+			margin: 5%;
+		}
+		.a-sentence {
+			margin: 75px 0px;
+		}
+	</style>
+</head>
+<body>
+	<h1 class="a-sentence" id="test">
+		<span id="one">This</span>
+		<span id="two"> is </span>
+		<span id="three">a </span>
+		<span id="three">sentence</span>
+		<span id="four">that</span>
+		<span id="five">lives</span>
+		<span id="six">within</span>
+		<span id="seven">many</span>
+		<span id="eight">spans</span>
+		<span id="nine">on</span>
+		<span id="ten">an</span>
+		<span id="eleven">html</span>
+		<span id="twelve">page.</span>
+	</h1>
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Firstname</th>
+				<th>Lastname</th>
+				<th>Movie</th>
+				<th>Age</th>
+			</tr>
+		</thead>
+		<tbody>
+			<!-- Data Goes Here -->
+			<tr>
+				<td>John</td>
+				<td>Doe</td>
+				<td>Gump Forrest</td>
+				<td>40</td>
+			</tr>
+			<tr>
+				<td>John</td>
+				<td>Doe</td>
+				<td>Gump Forrest</td>
+				<td>40</td>
+			</tr>
+			<tr>
+				<td>John</td>
+				<td>Doe</td>
+				<td>Gump Forrest</td>
+				<td>40</td>
+			</tr>
+			<tr>
+				<td>John</td>
+				<td>Doe</td>
+				<td>Gump Forrest</td>
+				<td>40</td>
+			</tr>
+		</tbody>
+	</table>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+
+	<script>
+
+	// 3 data types!! string, number/integer, boolean
+
+		var aName = 'Tha name';
+		var theAge = '22';
+		var areCatsGood = true;
+
+// ------------------------------------------------------------
+
+		// concatenating
+		// var a = 'it\'s';
+		// var b = ' a';
+		// var c = ' funky';
+		// var d = ' wednesday,';
+		// var e = ' the';
+		// var f = ' weather';
+		// var g = ' is';
+		// var h = ' kinda';
+		// var i = ' chilly'
+
+		// console.log(a + b + c + d + e + f + g + h + i);
+
+// ------------------------------------------------------------
+
+		// var a = 20;
+		// var b = 30;
+		//
+		// console.log(a + b);
+
+// ------------------------------------------------------------
+
+		// var theArray = ['banana', 5, 'army green', true];
+		// console.log(theArray[2] + ' ' + theArray[0]);
+
+// ------------------------------------------------------------
+		// var theArray = ['javascript ', 'of ', 'challenge ', 'its ', 'most ', 'a ', 'confusing ', 'is ', 'the ', 'but ', 'time ', 'fun ',];
+		//
+		// // this is an array METHOD !!
+		// theArray.push('this is in my array now');
+		//
+ 		// console.log(theArray[0]+theArray[7]+ theArray[6]+ theArray[4]+ theArray[1]+ theArray[8]+ theArray[10] + theArray[9] + theArray[3] + theArray[5] + theArray[11] + theArray[2]);
+		// console.log(theArray);
+		//
+		// // deletes the last array item and returns it in the log
+		// console.log(theArray.pop());
+		//
+		// console.log(theArray);
+
+// ------------------------------------------------------------
+
+		// var theArray = ['javascript ', 'is ', 'confusing ', 'most ', 'of ', 'the ', 'time ', 'but ', 'its ', 'a ', 'fun ', 'challenge ',];
+		//
+		// var i;
+		// var text = '';
+		//
+		// for (i = 0; i < theArray.length; i++) {
+		// 	text += theArray[i] + '';
+		// };
+		//
+		// document.getElementById('test').textContent = text;
+
+		// or the other method (shown below)
+
+		// var getOne = document.getElementById('one');
+		// getOne.textContent = theArray[0];
+
+// ------------------------------------------------------------
+
+		var theArray = ['javascript ', 'is ', 'confusing ', 'most ', 'of ', 'the ', 'time ', 'but ', 'its ', 'a ', 'fun ', 'challenge ',];
+
+		// 1. make the function
+		function updateTheHtml () {
+			// do stuff
+
+			console.log('working/');
+
+			var getOne = document.getElementById('one');
+			getOne.textContent = theArray[0];
+
+			var getTwo = document.getElementById('two');
+			getTwo.textContent = theArray[1];
+
+			var getThree = document.getElementById('three');
+			getThree.textContent = theArray[2];
+
+			var getFour = document.getElementById('four');
+			getFour.textContent = theArray[3];
+
+		};
+
+		// 2. invoking the function - fire the function
+		updateTheHtml();
+
+		// statements are called spaghetti code
+
+		// setTimeout(updateTheHtml, 2000);
+
+// ------------------------------------------------------------
+
+	</script>
+</body>
+</html>
