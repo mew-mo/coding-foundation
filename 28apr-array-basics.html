@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+
+<!-- 28TH APRIL - ARRAYS AND VARIABLES -->
+
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
@@ -179,19 +182,25 @@ function arrayAdjustment() {
 
 	var firstDayOfTheWeek = demoArray[0];
 
+	console.log(firstDayOfTheWeek);
+
+	// console log that references the array and logs out the whole thing. could log out an item via index number with the [6] to print moonday!
 	console.log(demoArray);
 
+	// adds a string to the arrayyyy
 	demoArray.unshift('days of the week: ');
 
 	console.log(demoArray);
 
-	demoArray.pop()
+	demoArray.pop();
 
 	console.log(demoArray);
 
 	demoArray.splice(2, 1);
 
 	console.log(demoArray);
+	console.log(demoArray.length);
+
 };
 
 arrayAdjustment();

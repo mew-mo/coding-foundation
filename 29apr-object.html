@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+
+<!-- 29 APRIL -  -->
+
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Objects</title>
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<style>
+		/* CSS Here */
+		body {
+			margin: 5%;
+		}
+		.a-sentence {
+			margin: 75px 0px;
+		}
+
+		#personA #firstName {
+			color: aquamarine;
+		}
+
+	</style>
+</head>
+<body>
+
+	<!-- <table class="table">
+		<thead>
+			<tr>
+				<th>Firstname</th>
+				<th>Lastname</th>
+				<th>Movie</th>
+				<th>Age</th>
+			</tr>
+		</thead>
+		<tbody> -->
+			<!-- Data Goes Here -->
+			<!-- <tr>
+				<td id="firstNameActor">John</td>
+				<td id="lastNameActor">Doe</td>
+				<td id="movieActor">Gump Forrest</td>
+				<td id="ageActor">40</td>
+			</tr>
+			<tr>
+				<td id="firstNameActress">John</td>
+				<td id="lastNameActress">Doe</td>
+				<td id="movieActress">Gump Forrest</td>
+				<td id="ageActress">40</td>
+			</tr>
+			<tr>
+				<td id="firstNameDirector">John</td>
+				<td id="lastNameDirector">Doe</td>
+				<td id="movieDirector">Gump Forrest</td>
+				<td id="ageDirector">40</td>
+			</tr>
+		</tbody>
+	</table> -->
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Firstname</th>
+				<th>Lastname</th>
+				<th>Movie</th>
+				<th>Age</th>
+			</tr>
+		</thead>
+		<tbody>
+			<!-- Data Goes Here -->
+			<tr id ="personA">
+				<td id="firstName">Click Me</td>
+				<td id="lastName">Doe</td>
+				<td id="movie">Gump Forrest</td>
+				<td id="age">40</td>
+			</tr>
+			<tr id="personB">
+				<td id="firstName">John</td>
+				<td id="lastName">Doe</td>
+				<td id="movie">Gump Forrest</td>
+				<td id="age">40</td>
+			</tr>
+			<tr id="personC">
+				<td id="firstName">John</td>
+				<td id="lastName">Doe</td>
+				<td id="movie">Gump Forrest</td>
+				<td id="age">40</td>
+			</tr>
+		</tbody>
+	</table>
+
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+
+	<script>
+
+	// ------------------------------------------------------------------------
+
+
+		// THIS IS AN OBJECT, POG, you can tell by the curly brackets {} <- object!!
+		// the variable's value is an object. an object can be like a datatype
+		var moniqueTickle = {
+			// the grey with a colon is a PROPERTY. inside of objects we have properties. firstName is a PROPERTY!! the value is a string (monique)
+			firstName: 'Monique',
+			lastName: 'Tickle',
+			nickname: 'Mo',
+			age: 20,
+			likesCats: true,
+			favouriteDrink: ['water', 'tea', 'milo', 'vanilla milkshake']
+		};
+		// an array does NOT have propeties. objects NEED {} and PROPERTIES. they need themmm!!!
+
+		// use . to access items inside the object
+		console.log(moniqueTickle.firstName);
+
+		console.log(moniqueTickle);
+
+		var mo = 'fool';
+
+// ------------------------------------------------------------------------
+
+		var person1 = {
+			firstName: 'Denzel',
+			lastName: 'Washington',
+			movies: ['Glory', 'Flight', 'The Equalizer'],
+			age: 66
+		};
+
+		var person2 = {
+			firstName: 'Leonardo',
+			lastName: 'DiCaprio',
+			movies: ['Titanic ', ' Inception ', ' The Great Gatsby'],
+			age: 46
+		};
+
+		var person3 = {
+			firstName: 'Lucy',
+			lastName: 'Liu',
+			movies: ['Kung Fu Panda', ' Charlie\'s Angels', ' Tinkerbell'],
+			age: 52
+		};
+
+		var person4 = {
+			firstName: 'Jack',
+			lastName: 'Black',
+			movies: ['Gulliver\'s Travels', ' Nacho Libre', ' King Kong'],
+			age: 51
+		};
+
+		// // var getFirstNameActor = document.getElementById('firstNameActor');
+		// var getFirstNameActorAgain = document.querySelector('#firstNameActor');
+		// var getLastNameActor = document.querySelector('#lastNameActor');
+		// var getMovieActor = document.querySelector('#movieActor');
+		// var getAgeActor = document.querySelector('#ageActor');
+		//
+		// // console.log(getFirstNameActor);
+		// console.dir(getFirstNameActorAgain.textContent);
+		//
+		// getFirstNameActorAgain.textContent = person2.firstName;
+		// getLastNameActor.textContent = person2.lastName;
+		// getMovieActor.textContent = person2.movies[0];
+		// getAgeActor.textContent = person2.age;
+		//
+		//
+		// var getFirstNameActorTwo = document.querySelector('#firstNameActress');
+		// var getLastNameActorTwo = document.querySelector('#lastNameActress');
+		// var getMovieActorTwo = document.querySelector('#movieActress');
+		// var getAgeActorTwo = document.querySelector('#ageActress');
+		//
+		// getFirstNameActorTwo.textContent = person3.firstName;
+		// getLastNameActorTwo.textContent = person3.lastName;
+		// getMovieActorTwo.textContent = person3.movies[0];
+		// getAgeActorTwo.textContent = person3.age;
+		//
+		//
+		// var getFirstNameActorThree = document.querySelector('#firstNameDirector');
+		// var getLastNameActorThree = document.querySelector('#lastNameDirector');
+		// var getMovieActorThree = document.querySelector('#movieDirector');
+		// var getAgeActorThree = document.querySelector('#ageDirector');
+		//
+		// getFirstNameActorThree.textContent = person4.firstName;
+		// getLastNameActorThree.textContent = person4.lastName;
+		// getMovieActorThree.textContent = person4.movies[0];
+		// getAgeActorThree.textContent = person4.age;
+		//
+
+		// var i;
+		// var text = '';
+		//
+		// for (i = 0; i < theArray.length; i++) {
+		// 	text += theArray[i] + '';
+		// };
+		//
+		// document.getElementById('test').textContent = text;
+
+// ------------------------------------------------------------------------
+
+// jquery click function- we can mix this with vanilla .js !! :D
+// click action that calls the function wowowowow Wow! :P wowe!
+$('#firstName').click(function(){
+	console.log('working');
+	updateTable();
+});
+
+// could do onclick="updateTable" in ur html too
+
+// ------------------------------------------------------------------------
+
+function updateTable() {
+
+	// var getFirstNameActor = document.getElementById('firstNameActor');
+	var getFirstNameActorAgain = document.querySelector('#personA #firstName');
+	var getLastNameActor = document.querySelector('#personA #lastName');
+	var getMovieActor = document.querySelector('#personA #movie');
+	var getAgeActor = document.querySelector('#personA #age');
+
+	// console.log(getFirstNameActor);
+	console.dir(getFirstNameActorAgain.textContent);
+
+	getFirstNameActorAgain.textContent = person2.firstName;
+	getLastNameActor.textContent = person2.lastName;
+	getMovieActor.textContent = person2.movies[0];
+	getAgeActor.textContent = person2.age;
+
+
+	var getFirstNameActorTwo = document.querySelector('#personB #firstName');
+	var getLastNameActorTwo = document.querySelector('#personB #lastName');
+	var getMovieActorTwo = document.querySelector('#personB #movie');
+	var getAgeActorTwo = document.querySelector('#personB #age');
+
+	getFirstNameActorTwo.textContent = person3.firstName;
+	getLastNameActorTwo.textContent = person3.lastName;
+	getMovieActorTwo.textContent = person3.movies[0];
+	getAgeActorTwo.textContent = person3.age;
+
+
+	var getFirstNameActorThree = document.querySelector('#personC #firstName');
+	var getLastNameActorThree = document.querySelector('#personC #lastName');
+	var getMovieActorThree = document.querySelector('#personC #movie');
+	var getAgeActorThree = document.querySelector('#personC #age');
+
+	getFirstNameActorThree.textContent = person4.firstName;
+	getLastNameActorThree.textContent = person4.lastName;
+	getMovieActorThree.textContent = person4.movies[0];
+	getAgeActorThree.textContent = person4.age;
+
+};
+// function ENDS
+// DONT PUT OBJECTS INSIDE THE FUNCTION.....!! dont!!!
+
+// updateTable();
+
+
+// ------------------------------------------------------------------------
+
+	var testing = document.querySelectorAll('#firstName');
+	// ez clap........ ??? query selector if you're using a lot of iDS
+
+
+	</script>
+</body>
+</html>
