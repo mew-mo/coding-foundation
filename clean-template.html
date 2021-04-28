@@ -171,6 +171,36 @@
 
 // ------------------------------------------------------------
 
+
+function arrayAdjustment() {
+	var demoArray = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+
+	demoArray[6] = 'moonday';
+
+	var firstDayOfTheWeek = demoArray[0];
+
+	console.log(demoArray);
+
+	demoArray.unshift('days of the week: ');
+
+	console.log(demoArray);
+
+	demoArray.pop()
+
+	console.log(demoArray);
+
+	demoArray.splice(2, 1);
+
+	console.log(demoArray);
+};
+
+arrayAdjustment();
+
+
+
+// ------------------------------------------------------------
+
+
 	</script>
 </body>
 </html>
