@@ -17,8 +17,8 @@
 			margin: 75px 0px;
 		}
 
-		#personA #firstName {
-			color: aquamarine;
+		#firstName {
+			color: #f26863;
 		}
 
 	</style>
@@ -75,13 +75,25 @@
 				<td id="age">40</td>
 			</tr>
 			<tr id="personB">
-				<td id="firstName">John</td>
+				<td id="firstName">Click Me</td>
 				<td id="lastName">Doe</td>
 				<td id="movie">Gump Forrest</td>
 				<td id="age">40</td>
 			</tr>
 			<tr id="personC">
-				<td id="firstName">John</td>
+				<td id="firstName">Click Me</td>
+				<td id="lastName">Doe</td>
+				<td id="movie">Gump Forrest</td>
+				<td id="age">40</td>
+			</tr>
+			<tr id="personD">
+				<td id="firstName">Click Me</td>
+				<td id="lastName">Doe</td>
+				<td id="movie">Gump Forrest</td>
+				<td id="age">40</td>
+			</tr>
+			<tr id="personE">
+				<td id="firstName">Click Me</td>
 				<td id="lastName">Doe</td>
 				<td id="movie">Gump Forrest</td>
 				<td id="age">40</td>
@@ -147,6 +159,26 @@
 			age: 51
 		};
 
+		var person5 = {
+			firstName: 'Al',
+			lastName: 'Pacino',
+			movies: {
+				mafia: ['Godfather', 'Godfather 2', 'Carlitos Way'],
+				drama: ['Scent Of A Woman', 'Dog Day Afternoon']
+			},
+			age: 65
+		};
+
+		var person6 = {
+			firstName: 'Jamie',
+			lastName: 'Foxx',
+			movies: {
+				animated: ['Soul', 'Rio', 'Rio 2'],
+				live: ['The Amazing Spider-Man', 'Django Unchained', 'Spider-Man Homecoming'],
+			},
+			age: 53
+		}
+
 		// // var getFirstNameActor = document.getElementById('firstNameActor');
 		// var getFirstNameActorAgain = document.querySelector('#firstNameActor');
 		// var getLastNameActor = document.querySelector('#lastNameActor');
@@ -197,16 +229,36 @@
 
 // jquery click function- we can mix this with vanilla .js !! :D
 // click action that calls the function wowowowow Wow! :P wowe!
-$('#firstName').click(function(){
+$('#personA #firstName').click(function(){
 	console.log('working');
-	updateTable();
+	updatePersonA();
+});
+
+$('#personB #firstName').click(function(){
+	console.log('working');
+	updatePersonB();
+});
+
+$('#personC #firstName').click(function(){
+	console.log('working');
+	updatePersonC();
+});
+
+$('#personD #firstName').click(function(){
+	console.log('working');
+	updatePersonD();
+});
+
+$('#personE #firstName').click(function(){
+	console.log('working');
+	updatePersonE();
 });
 
 // could do onclick="updateTable" in ur html too
 
 // ------------------------------------------------------------------------
 
-function updateTable() {
+function updatePersonA() {
 
 	// var getFirstNameActor = document.getElementById('firstNameActor');
 	var getFirstNameActorAgain = document.querySelector('#personA #firstName');
@@ -221,8 +273,9 @@ function updateTable() {
 	getLastNameActor.textContent = person2.lastName;
 	getMovieActor.textContent = person2.movies[0];
 	getAgeActor.textContent = person2.age;
+};
 
-
+function updatePersonB() {
 	var getFirstNameActorTwo = document.querySelector('#personB #firstName');
 	var getLastNameActorTwo = document.querySelector('#personB #lastName');
 	var getMovieActorTwo = document.querySelector('#personB #movie');
@@ -232,8 +285,9 @@ function updateTable() {
 	getLastNameActorTwo.textContent = person3.lastName;
 	getMovieActorTwo.textContent = person3.movies[0];
 	getAgeActorTwo.textContent = person3.age;
+};
 
-
+function updatePersonC() {
 	var getFirstNameActorThree = document.querySelector('#personC #firstName');
 	var getLastNameActorThree = document.querySelector('#personC #lastName');
 	var getMovieActorThree = document.querySelector('#personC #movie');
@@ -243,8 +297,32 @@ function updateTable() {
 	getLastNameActorThree.textContent = person4.lastName;
 	getMovieActorThree.textContent = person4.movies[0];
 	getAgeActorThree.textContent = person4.age;
-
 };
+
+function updatePersonD() {
+	var getFirstNameActorFour = document.querySelector('#personD #firstName');
+	var getLastNameActorFour = document.querySelector('#personD #lastName');
+	var getMovieActorFour = document.querySelector('#personD #movie');
+	var getAgeActorFour = document.querySelector('#personD #age');
+
+	getFirstNameActorFour.textContent = person5.firstName;
+	getLastNameActorFour.textContent = person5.lastName;
+	getMovieActorFour.textContent = person5.movies.mafia[0];
+	getAgeActorFour.textContent = person5.age;
+};
+
+function updatePersonE() {
+	var getFirstNameActorFive = document.querySelector('#personE #firstName');
+	var getLastNameActorFive = document.querySelector('#personE #lastName');
+	var getMovieActorFive = document.querySelector('#personE #movie');
+	var getAgeActorFive = document.querySelector('#personE #age');
+
+	getFirstNameActorFive.textContent = person6.firstName;
+	getLastNameActorFive.textContent = person6.lastName;
+	getMovieActorFive.textContent = person6.movies.animated[0];
+	getAgeActorFive.textContent = person6.age;
+};
+
 // function ENDS
 // DONT PUT OBJECTS INSIDE THE FUNCTION.....!! dont!!!
 
