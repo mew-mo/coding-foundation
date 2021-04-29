@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+
+<!-- 30 APRIL -  -->
+
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>array in an array in an array</title>
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<style>
+
+		body {
+			padding: 30px;
+		}
+
+		h1 {
+			font-size: 9rem;
+		}
+
+		h2 {
+			font-style: italic;
+			font-weight: 200;
+			padding-bottom: 30px;
+		}
+
+	</style>
+</head>
+<body>
+
+	<!-- <div class="peppers-hotel-table">
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Property</th>
+					<th>Value</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr id ="rowOne">
+					<td id="">Hotel Name</td>
+					<td id="hotel">Doe</td>
+				</tr>
+				<tr id="rowTwo">
+					<td id="">Location</td>
+					<td id="place">Doe</td>
+				</tr>
+				<tr id="">
+					<td id="">Free Wifi Available?</td>
+					<td id="wifi">Doe</td>
+				</tr>
+				<tr id="">
+					<td id="">Nearby Attraction</td>
+					<td id="funStuff">Doe</td>
+				</tr>
+				<tr id="">
+					<td id="">A popular drink</td>
+					<td id="drinks">Doe</td>
+				</tr>
+				<tr id="">
+					<td id="">Transit Avaiable</td>
+					<td id="transit">Doe</td>
+				</tr>
+			</tbody>
+		</table>
+	</div> -->
+
+	<div class="playing">
+		<h1 id="hotel">This is some good old h1 that is good</h1>
+		<h2 id="place">I definitely did not make a table initially</h2>
+		<h4>Attactions:</h4>
+		<ul id="attractionList">
+			<li class="attractionA">this is an attraction, wow</li>
+			<li class="attractionB">this is an attraction, wow</li>
+			<li class="attractionC">this is an attraction, wow</li>
+			<li class="attractionD">this is an attraction, wow</li>
+			<li class="attractionE">this is an attraction, wow</li>
+			<li class="attractionF">this is an attraction, wow</li>
+		</ul>
+		<button>
+			find attractions
+		</button>
+	</div>
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"> </script>
+
+	<script>
+
+    var peppersHotel = {
+      hotelName: 'Peppers Soul Hotel',
+      location: 'Surfers Paradise',
+      freeWifi: true,
+      attractions: {
+        close: ['Ripley\'s Believe it or Not', 'Infinity Maze', 'Skypoint Observation Deck'],
+        afar: ['Dreamworld', 'Warner Bros Movie World', 'Wet\'n\'Wild Water World'],
+      },
+			miniBar: [
+				['dear olivia', 'a midsummer\'s night\'s dream', 'piha-garita'],
+				['negroni', 'old fashioned'],
+				['stella artois', 'panhead supercharger apa']
+			],
+      publicTransit: 'Trains',
+			aMethod: function() {
+				console.log('this is a method');
+			}
+			// example of a method within an object wow!
+    };
+
+		peppersHotel.aMethod();
+
+		// a METHOD is LITERALLY just a function within an object
+
+
+		// to call iteams inside the array inside the array
+		console.log(peppersHotel.miniBar[0][1]);
+
+		console.log(peppersHotel);
+
+		// var getHotelName = document.querySelector('#hotel');
+		// var getLocation = document.querySelector('#place');
+		// var getWifi = document.querySelector('#wifi');
+		// var getAttractions = document.querySelector('#funStuff');
+		// var getMiniBar = document.querySelector('#drinks');
+		// var getPublicTransit = document.querySelector('#transit');
+		//
+		// getHotelName.textContent = peppersHotel.hotelName;
+		// getLocation.textContent = peppersHotel.location;
+		// getWifi.textContent = peppersHotel.freeWifi;
+		// getAttractions.textContent = peppersHotel.attractions.close[0];
+		// getMiniBar.textContent = peppersHotel.miniBar[0][1];
+		// getPublicTransit.textContent = peppersHotel.publicTransit;
+
+// --------------------------------------------------------------------------
+
+		var getHotelName = document.querySelector('#hotel');
+		var getLocation = document.querySelector('#place');
+		getHotelName.textContent = peppersHotel.hotelName;
+		getLocation.textContent = peppersHotel.location;
+
+
+		// function updateAttractions(){
+		// 	var getAttractions = document.querySelector('#attractionList .attractionA');
+		// 	var getAttractionsTwo = document.querySelector('#attractionList .attractionB');
+		// 	var getAttractionsThree = document.querySelector('#attractionList .attractionC');
+		// 	var getAttractionsFour = document.querySelector('#attractionList .attractionD');
+		// 	var getAttractionsFive = document.querySelector('#attractionList .attractionE');
+		// 	var getAttractionsSix = document.querySelector('#attractionList .attractionF');
+		//
+		// 	getAttractions.textContent = peppersHotel.attractions.close[0];
+		// 	getAttractionsTwo.textContent = peppersHotel.attractions.close[1];
+		// 	getAttractionsThree.textContent = peppersHotel.attractions.close[2];
+		// 	getAttractionsFour.textContent = peppersHotel.attractions.afar[0];
+		// 	getAttractionsFive.textContent = peppersHotel.attractions.afar[1];
+		// 	getAttractionsSix.textContent = peppersHotel.attractions.afar[2];
+		// };
+
+// buttonclicks is counting how many times the button is clicked to change it kindof?? "change the function into a method" well
+
+// method: function that lives inside of an object
+
+		var buttonClicks = 1;
+
+		function updateFirst(){
+			if ( buttonClicks == 1 ) {
+				var getAttractions = document.querySelector('#attractionList .attractionA');
+				getAttractions.textContent = peppersHotel.attractions.close[0];
+				buttonClicks = 2;
+				$('button').click(function(){
+					updateSecond();
+				});
+			}
+		};
+
+		function updateSecond(){
+			if ( buttonClicks == 2 ) {
+				var getAttractionsTwo = document.querySelector('#attractionList .attractionB');
+				getAttractionsTwo.textContent = peppersHotel.attractions.close[1];
+				buttonClicks = 3;
+				$('button').click(function(){
+					updateThird();
+				});
+			}
+			else {
+				updateFirst();
+			}
+		};
+
+		function updateThird(){
+			if ( buttonClicks == 3 ) {
+				var getAttractionsThree = document.querySelector('#attractionList .attractionC');
+				getAttractionsThree.textContent = peppersHotel.attractions.close[2];
+				buttonClicks = 4;
+				$('button').click(function(){
+					updateFourth();
+				});
+			}
+			else {
+				updateFirst();
+			}
+		};
+
+		function updateFourth(){
+			if ( buttonClicks == 4 ) {
+					var getAttractionsFour = document.querySelector('#attractionList .attractionD');
+					getAttractionsFour.textContent = peppersHotel.attractions.afar[0];
+				buttonClicks = 5;
+				$('button').click(function(){
+					updateFifth();
+				});
+			}
+			else {
+				updateFirst();
+			}
+		};
+
+		function updateFifth(){
+			if ( buttonClicks == 5 ) {
+					var getAttractionsFive = document.querySelector('#attractionList .attractionE');
+					getAttractionsFive.textContent = peppersHotel.attractions.afar[1];
+				buttonClicks = 6;
+				$('button').click(function(){
+					updateSixth();
+				});
+			}
+			else {
+				updateFirst();
+			}
+		};
+
+		function updateSixth(){
+			if ( buttonClicks == 6 ) {
+					var getAttractionsSix = document.querySelector('#attractionList .attractionF');
+					getAttractionsSix.textContent = peppersHotel.attractions.afar[2];
+			}
+			else {
+				updateFirst();
+			}
+		};
+
+		$('button').click(function(){
+			updateFirst();
+		});
+
+// --------------------------------------------------------------------------
+
+
+	</script>
+</body>
+</html>

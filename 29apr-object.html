@@ -98,6 +98,12 @@
 				<td id="movie">Gump Forrest</td>
 				<td id="age">40</td>
 			</tr>
+			<tr id="personF">
+				<td id="firstName">Click Me</td>
+				<td id="lastName">Doe</td>
+				<td id="movie">Gump Forrest</td>
+				<td id="age">40</td>
+			</tr>
 		</tbody>
 	</table>
 
@@ -131,12 +137,12 @@
 
 // ------------------------------------------------------------------------
 
-		var person1 = {
-			firstName: 'Denzel',
-			lastName: 'Washington',
-			movies: ['Glory', 'Flight', 'The Equalizer'],
-			age: 66
-		};
+		// var person1 = {
+		// 	firstName: 'Denzel',
+		// 	lastName: 'Washington',
+		// 	movies: ['Glory', 'Flight', 'The Equalizer'],
+		// 	age: 66
+		// };
 
 		var person2 = {
 			firstName: 'Leonardo',
@@ -177,7 +183,28 @@
 				live: ['The Amazing Spider-Man', 'Django Unchained', 'Spider-Man Homecoming'],
 			},
 			age: 53
+		};
+
+		var person1 = {
+	// Object property with 'Denzel' as string value
+		firstName: 'Al',
+		lastName: 'Pacino',
+		movies: {
+			mafia: ['Godfather', 'Godfather 2', 'Carlitos Way'],
+			drama: ['Scent Of A Woman', 'Dog Day Afternoon']
+		},
+		age: 65,
+		updateTable: function () {
+			var getFirstNameActorBonus = document.querySelector('#personF #firstName');
+			var getLastNameActorBonus = document.querySelector('#personF #lastName');
+			var getMovieActorBonus = document.querySelector('#personF #movie');
+			var getAgeActorBonus = document.querySelector('#personF #age');
+			getFirstNameActorBonus.textContent = person1.firstName;
+			getLastNameActorBonus.textContent = person1.lastName;
+			getAgeActorBonus.textContent = person1.age;
+			getMovieActorBonus.textContent = person1.movies.mafia[1];
 		}
+	};
 
 		// // var getFirstNameActor = document.getElementById('firstNameActor');
 		// var getFirstNameActorAgain = document.querySelector('#firstNameActor');
@@ -224,37 +251,6 @@
 		// };
 		//
 		// document.getElementById('test').textContent = text;
-
-// ------------------------------------------------------------------------
-
-// jquery click function- we can mix this with vanilla .js !! :D
-// click action that calls the function wowowowow Wow! :P wowe!
-$('#personA #firstName').click(function(){
-	console.log('working');
-	updatePersonA();
-});
-
-$('#personB #firstName').click(function(){
-	console.log('working');
-	updatePersonB();
-});
-
-$('#personC #firstName').click(function(){
-	console.log('working');
-	updatePersonC();
-});
-
-$('#personD #firstName').click(function(){
-	console.log('working');
-	updatePersonD();
-});
-
-$('#personE #firstName').click(function(){
-	console.log('working');
-	updatePersonE();
-});
-
-// could do onclick="updateTable" in ur html too
 
 // ------------------------------------------------------------------------
 
@@ -328,6 +324,40 @@ function updatePersonE() {
 
 // updateTable();
 
+// ------------------------------------------------------------------------
+
+// jquery click function- we can mix this with vanilla .js !! :D
+// click action that calls the function wowowowow Wow! :P wowe!
+$('#personA #firstName').click(function(){
+	console.log('working');
+	updatePersonA();
+});
+
+$('#personB #firstName').click(function(){
+	console.log('working');
+	updatePersonB();
+});
+
+$('#personC #firstName').click(function(){
+	console.log('working');
+	updatePersonC();
+});
+
+$('#personD #firstName').click(function(){
+	console.log('working');
+	updatePersonD();
+});
+
+$('#personE #firstName').click(function(){
+	console.log('working');
+	updatePersonE();
+});
+
+$('#personF #firstName').click(function(){
+	person1.updateTable();
+});
+
+// could do onclick="updateTable" in ur html too
 
 // ------------------------------------------------------------------------
 
