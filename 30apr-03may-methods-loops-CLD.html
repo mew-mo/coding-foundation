@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 
-<!-- 30 APRIL -  -->
+<!-- 30 APRIL - 03 MAY  -->
 
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>array in an array in an array</title>
+	<title>DOM manipulation and methods leggo</title>
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,700&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<style>
@@ -65,9 +65,24 @@
 			updateDom: function (){
 
         // creating a button element in the html, setting the display text and placing it into the body
-        var btn = document.createElement("BUTTON");
+        var btn = document.createElement("button");
         btn.innerHTML = "find attractions";
         document.body.appendChild(btn);
+
+				var getList = document.querySelectorAll('li');
+
+				console.log(getList[5].innerHTML);
+
+				var listClass = 1;
+
+				for (var i = 0; i < getList.length; i++) {
+					getList[i];
+					var list = document.createElement('li');
+					list.setAttribute('class', 'attraction'+listClass+'');
+					list.innerHTML = 'sure hope this works';
+					document.getElementById('attractionList').appendChild(list);
+					listClass += 1;
+				};
 
         // creating variables by pulling ids from the html
         var getHotelName = document.querySelector('#hotel');
@@ -83,7 +98,7 @@
         // loop that updates the first attraction when the button is clicked once, then prepares to call the next function (updateSecond()) by changing the buttonClicks variable so it can be called, and so on
         function updateFirst(){
           if ( buttonClicks == 1 ) {
-            var getAttractions = document.querySelector('#attractionList .attractionA');
+            var getAttractions = document.querySelector('#attractionList .attraction1');
             getAttractions.textContent = peppersHotel.attractions.close[0];
             buttonClicks = 2;
             $('button').click(function(){
@@ -94,7 +109,7 @@
 
         function updateSecond(){
           if ( buttonClicks == 2 ) {
-            var getAttractionsTwo = document.querySelector('#attractionList .attractionB');
+            var getAttractionsTwo = document.querySelector('#attractionList .attraction2');
             getAttractionsTwo.textContent = peppersHotel.attractions.close[1];
             buttonClicks = 3;
             $('button').click(function(){
@@ -108,7 +123,7 @@
 
         function updateThird(){
           if ( buttonClicks == 3 ) {
-            var getAttractionsThree = document.querySelector('#attractionList .attractionC');
+            var getAttractionsThree = document.querySelector('#attractionList .attraction3');
             getAttractionsThree.textContent = peppersHotel.attractions.close[2];
             buttonClicks = 4;
             $('button').click(function(){
@@ -122,7 +137,7 @@
 
         function updateFourth(){
           if ( buttonClicks == 4 ) {
-              var getAttractionsFour = document.querySelector('#attractionList .attractionD');
+              var getAttractionsFour = document.querySelector('#attractionList .attraction4');
               getAttractionsFour.textContent = peppersHotel.attractions.afar[0];
             buttonClicks = 5;
             $('button').click(function(){
@@ -136,7 +151,7 @@
 
         function updateFifth(){
           if ( buttonClicks == 5 ) {
-              var getAttractionsFive = document.querySelector('#attractionList .attractionE');
+              var getAttractionsFive = document.querySelector('#attractionList .attraction5');
               getAttractionsFive.textContent = peppersHotel.attractions.afar[1];
             buttonClicks = 6;
             $('button').click(function(){
@@ -150,7 +165,7 @@
 
         function updateSixth(){
           if ( buttonClicks == 6 ) {
-              var getAttractionsSix = document.querySelector('#attractionList .attractionF');
+              var getAttractionsSix = document.querySelector('#attractionList .attraction6');
               getAttractionsSix.textContent = peppersHotel.attractions.afar[2];
           }
           else {
