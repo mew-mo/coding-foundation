@@ -23,6 +23,8 @@
   <h1>is true? :0</h1>
   <button>clickme!</button>
 
+  <button id="quizBtn">QUIZ BUTTON!!</button>
+
   <p id="demo"></p>
 </body>
 
@@ -104,59 +106,83 @@
 
 // ---------------------------------------------------------------------------
 
-var score = 0
+var startQuiz = document.querySelector('#quizBtn');
 
-var person = prompt('yo whats ur name', 'put it here');
-alert('nice, welcome to prompt hell, ' + person + '' );
-var q1 = prompt('guess how old my cat is, ' + person + '. your score right now is ' + score + '!');
-
-if (q1 == 8) {
-  score += 1;
-  alert('u got it! onto the next one. your score right now is ' + score + '!');
-} else {
-  alert('oh thats not it lol, onto the next one. your score right now is ' + score + '!');
+startQuiz.onclick = function() {
+  theQuiz();
 };
 
-var q2 = prompt('how many days left until today?');
+function theQuiz(){
+  var score = 0
 
-if (q2 == 0) {
-  score += 1;
-  alert('you are right my friend ' + person + ', onto the next one. your score right now is ' + score + '!');
-} else {
-  alert('you are wrong but thats okay, onto the next one. your score right now is ' + score + '!');
+  var person = prompt('yo whats ur name', 'put it here');
+  alert('nice, welcome to prompt hell, ' + person + '' );
+  var q1 = prompt('guess how old my cat is, ' + person + '. your score right now is ' + score + '!');
+
+  if (q1 == 8) {
+    score += 1;
+    alert('u got it! onto the next one. your score right now is ' + score + '!');
+  } else {
+    alert('oh thats not it lol, onto the next one. your score right now is ' + score + '!');
+  };
+
+  var q2 = prompt('how many days left until today?');
+
+  if (q2 == 0) {
+    score += 1;
+    alert('you are right my friend ' + person + ', onto the next one. your score right now is ' + score + '!');
+  } else {
+    alert('you are wrong but thats okay, onto the next one. your score right now is ' + score + '!');
+  };
+
+  var q3 = prompt('how are you doing. like genuinely. how are you, ' + person + '?');
+
+  if (q3 === '') {
+    score = 0;
+    alert('WOW rude SKIPPING MY KIND AND CARING QUESTION. i am going to reset your points. your score right now is ' + score + '!');
+  } else if ( q3 === 'good')  {
+    score += 1;
+    alert('that\'s good to hear pal, here is an extra point to turn good to great (hopefully)! your score right now is ' + score + '!');
+  } else if (q3 === 'bad') {
+    score += 2;
+    alert('awww noo that\'s not it!! lemme try cheer you up with two extra points!! your score right now is ' + score + '!');
+  } else {
+    score += 1;
+    alert('gonna be honest that was a pity question to give you a point since theres no wrong answer. your score right now is ' + score + '!');
+  };
+
+  var q4 = prompt('ok here\'s a simple one. what colour is the sky (NO CHEATING!!!!!)');
+
+  if (q4 === 'blue') {
+    score += 1;
+    alert('nice job nice job nice job!! your score right now is ' + score + '!');
+  } else if (q4 === "sky blue" || q4 === "light blue") {
+    score += 1;
+    alert('well, you\'re technically right but you didnt need to make the distinguishment, just blue wouldve done haha. anyway, your score right now is ' + score + '!');
+  } else {
+    alert('idk how you messed that up but i am impressed. your score right now is ' + score + '!')
+  };
+
+  var q5 = prompt('last question homie. how many days of class have we had so far?');
+
+  if (q5 == 50) {
+    score += 1;
+    alert('oh impressive i honestly didnt think youd get it!! your score right now is ' + score + '!');
+  } else if ( q5 < 50 ) {
+      alert('you were just a little low, the answer is higher than that! your score right now is ' + score + '!');
+  } else if ( q5 > 50 ) {
+      alert('you were a bit too high, we\'ve had less days than that! your score right now is ' + score + '!');
+  } else if (q5 < 48 && q5 > 52) {
+    score += .5;
+    alert('your guess was really really close, now that i think about it! so how about half of a point? your score right now is ' + score + '!');
+  } else {
+    alert('not right but a good try, your score right now is ' + score + '!');
+  };
+
+  alert('nice work ' + person + ', thanks for playin! your final score was ' + score + ' out of 5!');
+
+  console.log(person);
 };
-
-var q3 = prompt('how are you doing. like genuinely. how are you, ' + person + '?');
-
-if (q3 != '') {
-  score += 1;
-  alert('gonna be honest that was a pity question to give you a point since theres no wrong answer. your score right now is ' + score + '!');
-} else {
-  score = 0;
-  alert('WOW rude SKIPPING MY NICE AND CARING QUESTION. i am going to reset your points. your score right now is ' + score + '!');
-}
-
-var q4 = prompt('ok here\'s a simple one. what colour is the sky (NO CHEATING!!!!!)');
-
-if (q4 === 'blue') {
-  score += 1;
-  alert('nice job nice job nice job!! your score right now is ' + score + '!');
-} else {
-  alert('idk how you messed that up but i am impressed. your score right now is ' + score + '!')
-};
-
-var q5 = prompt('last question homie. how many days of class have we had so far?');
-
-if (q5 == 50) {
-  score += 1;
-  alert('oh impressive i honestly didnt think youd get it!! your score right now is ' + score + '!');
-} else {
-  alert('not right but a good try, your score right now is ' + score + '!');
-};
-
-alert('nice work, ' + person + ', thanks for playin! your final score was ' + score + ' out of 5!');
-
-console.log(person);
 
 
 </script>
