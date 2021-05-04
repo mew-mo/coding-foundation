@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>TIME!</title>
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <style>
+
+  body {
+    padding: 30px;
+  }
+
+  </style>
+</head>
+<body>
+
+  <p id="demo"></p>
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"> </script>
+
+  <script>
+
+    var currentDate = new Date();
+
+    var myBday = new Date(2000, 11, 21, 9, 44);
+
+    var aDay = new Date('October 25, 1998');
+
+    var dada = new Date(2000, 8, 22);
+
+    console.log(myBday);
+    console.log(currentDate);
+    console.log(aDay);
+    console.log(dada);
+
+    document.querySelector('#demo').innerHTML = myBday.toString();
+
+// ------------------------------------------------------------------------------------------------------
+
+  </script>
+
+</body>
+</html>

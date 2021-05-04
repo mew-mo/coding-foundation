@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<style>
+		/* CSS Here */
+		* {
+			font-family: 'Source Sans Pro', sans-serif;
+			font-weight: 300;
+		}
+
+		body {
+			background-color: #333;
+			font-size: 30px;
+		}
+
+		h4 {
+			font-size: 54px;
+		}
+
+		div {
+			border: 1px solid #000;
+			width: 25%;
+			margin: 0 auto;
+			margin-top: 8em;
+			padding: 1.5em;
+			background-color: #efefef;
+		}
+
+	</style>
+</head>
+<body>
+
+	<div>
+		<h4 id="output">
+			<span id="hours"></span>
+			<span>:</span>
+			<span id="minutes"></span>
+			<span>:</span>
+			<span id="seconds"></span>
+		</h4>
+		<p id="statement"></p>
+	</div>
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+
+	<script>
+
+	//*** Task 1 - Make 3 more true 'logical conditional if' statements that are based on the current time
+
+	$(document).ready(function(){
+
+		// creates variable that contains an mp3
+		var alarm = new Audio('takeoff.mp3');
+
+		// Access Elements In The HTML
+		var getHoursHtml = document.getElementById('hours');
+		var getMinutesHtml = document.getElementById('minutes');
+		var getSecondsHtml = document.getElementById('seconds');
+		var statement = document.getElementById('statement');
+
+		// startTime is the function that fills the clock in the DOM and allows it to tick :D
+		function startTime() {
+
+			// Use the date constructor, to make a date and time object
+			var timeStamp = new Date();
+
+			// Assign times to variables
+			var hours = timeStamp.getHours();
+			var minutes = timeStamp.getMinutes();
+			var seconds = timeStamp.getSeconds();
+
+			// calls the checkTime() function by passing through minutes and seconds variables- this is so that the variables can have an extra 0 in front if the value is less than 10 in order to maintain the digital clock layout
+			minutes = checkTime(minutes);
+			seconds = checkTime(seconds);
+
+// -------------------------------- COMMENTED OUT CODE CAN BE IGNORED ---------------------
+
+			// if (seconds < 20) {
+			// 	alert('this is an annoying alert probably, the seconds are less than 20!');
+			// };
+
+// -------------------------------- COMMENTED OUT CODE CAN BE IGNORED ---------------------
+
+			// sets the timeout of this whole function to update every second (wow awesome)
+			var time = setTimeout(startTime, 1000);
+			// don't have to use paretheses for the function in settimeout, it is still calling the function though lol
+
+			// Updates the DOM or HTML with the time values from the variables above
+			getHoursHtml.textContent = hours;
+			getMinutesHtml.textContent = minutes;
+			getSecondsHtml.textContent = seconds;
+
+			// specific alarm loop, wouldd work to play the alarm if only google chrome wasn't rude and stopped me
+			if (hours == 11 && minutes == 06 && seconds == 03) {
+				console.log('functions??');
+				var audio = new Audio('takeoff.mp3');
+				audio.autoplay = true;
+				audio.load();
+				console.log(audio);
+			};
+
+			// allows the alarm to play when the window is clicked. so sad that it has to be this way
+			window.onclick = function() {
+				console.log('functions??');
+				alarm.play();
+			};
+			// could wrap this whole function in a window.onclick to make it work the way we be wanting pensive emoji
+
+		};
+		// startTime function ENDS
+
+// -------------------------------- COMMENTED OUT CODE CAN BE IGNORED ---------------------
+
+		// jared's version of the ticking clock!! using the SETINTERVAL method ::
+		// ::::::Digital Clock::::::
+		// setInterval(
+		//  function () {
+			// 	var timeStamp = new Date();
+			// 	var hours = timeStamp.getHours();
+			// 	var minutes = timeStamp.getMinutes();
+			// 	var seconds = timeStamp.getSeconds();
+			// 	getHoursHtml.textContent = hours;
+			// 	getMinutesHtml.textContent = minutes;
+			// 	getSecondsHtml.textContent = seconds;
+		// }, 1000);
+
+// -------------------------------- COMMENTED OUT CODE CAN BE IGNORED ---------------------
+
+		// checkTime function wow! makes sure my alarm layout stays nice and pretty with those extra zeros
+		function checkTime(i){
+			if (i < 10) {
+				i = '0' + i
+				// adding 0 in front of numbers that are less than 10 so it displays correctly!! is only called for minutes and seconds, as seen in the starttime function
+			};
+			return i;
+			// i is a variable that you can pass other variables through. pretty cool!
+		};
+
+		// calls the startTime function that starts the entire code pretty much
+		startTime();
+
+		// console.dir(timeStamp);
+		console.log(hours);
+		console.log(minutes);
+		console.log(seconds);
+
+	});
+	// Document Ready ENDS
+
+// ---------------------------------------------------------------------------------------
+
+	(function(){}());
+	// this is an iffy ! its like the document ready..!
+
+	</script>
+</body>
+</html>

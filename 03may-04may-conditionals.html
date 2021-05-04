@@ -232,12 +232,12 @@ function theQuiz(){
   // parseInt() takes a string and turns it into a number
   var q2 = prompt('how many days left until today?');
 
-  if (q2 == 0) {
-    score += 1;
-    alert('you are right my friend ' + person + ', onto the next one. your score right now is ' + score + '!');
-  } else {
-    alert('you are wrong but thats okay, onto the next one. your score right now is ' + score + '!');
+  while (q2 !== 0) {
+    prompt('try again- how many days left until today?');
   };
+
+  score += 1;
+  alert('you are right my friend ' + person + ', onto the next one. your score right now is ' + score + '!');
 
   var q3 = prompt('how are you doing. like genuinely. how are you, ' + person + '?');
 
@@ -342,6 +342,10 @@ function theQuiz(){
 
 };
 // theQuiz function ENDS here
+
+// score++ adds one to Score - increments
+// score-- subtracts one from score
+// adding the variable with + is concatenating. like in the alert 'blalal' + score <-CONCATENATING
 
 // ---------------------------------------------------------------------------
 
