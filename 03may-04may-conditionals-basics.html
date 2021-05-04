@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- 03 MAY - 04 MAY -->
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>conditionals wow!!</title>
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <style>
+
+  body {
+    padding: 30px;
+  }
+
+  table, h4 {
+    margin-top: 50px;
+  }
+
+  span {
+    color: #e25a6f;
+  }
+
+  .haha {
+    width: 10%;
+    float: left;
+  }
+
+  .layouting {
+    width: 20%;
+    float: left;
+  }
+
+
+  </style>
+</head>
+
+<body>
+  <h1>is true? :0</h1>
+  <button>clickme!</button>
+
+  <button id="quizBtn">QUIZ BUTTON!!</button>
+
+  <!-- <table class="table">
+    <thead>
+      <tr>
+        <th>Q No.</th>
+        <th>Your Answers</th>
+        <th>Correct Answers</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr id ="rowOne" class="change-rows">
+        <td>1</td>
+        <td class="you">your answer...</td>
+        <td class="correct">correct answer...</td>
+      </tr>
+      <tr id="rowTwo" class="change-rows">
+        <td>2</td>
+        <td class="you">your answer...</td>
+        <td class="correct">correct answer...</td>
+      </tr>
+      <tr id="rowThree" class="change-rows">
+        <td>3</td>
+        <td class="you">your answer...</td>
+        <td class="correct">correct answer...</td>
+      </tr>
+      <tr id="rowFour" class="change-rows">
+        <td>4</td>
+        <td class="you">your answer...</td>
+        <td class="correct">correct answer...</td>
+      </tr>
+      <tr id="rowFive" class="change-rows">
+        <td>5</td>
+        <td class="you">your answer...</td>
+        <td class="correct">correct answer...</td>
+      </tr>
+    </tbody>
+  </table> -->
+
+<div class="haha">
+  <h4>Q No.</h4>
+  <ol>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ol>
+</div>
+
+<div class="layouting">
+  <h4>Your Answers</h4>
+  <ul>
+    <li class="user1"></li>
+    <li class="user2"></li>
+    <li class="user3"></li>
+    <li class="user4"></li>
+    <li class="user5"></li>
+  </ul>
+</div>
+
+<div class="layouting">
+  <h4>Correct Answers</h4>
+  <ul>
+    <li class="correct1"></li>
+    <li class="correct2"></li>
+    <li class="correct3"></li>
+    <li class="correct4"></li>
+    <li class="correct5"></li>
+  </ul>
+</div>
+
+<div class="bigboy">
+  <h1>Final Score: <span>?</span> out of 5!</h1>
+</div>
+
+  <p id="demo"></p>
+</body>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"> </script>
+<script>
+
+  var isTrue = true;
+  var isFalse = false;
+
+  var myName = 'mo';
+  var aNum = 3;
+  var bNum = 3;
+
+  // below is a falsy value its always seen as false :(
+  var no = 0;
+
+  // this is true because its a string; A REAL VALUE
+  var falseMaybe = 'false';
+
+  // conditional statement :)
+  // if (isTrue) {
+  //   alert('its real');
+  //   // if the variable above is true, do this code.is always looking for true by default
+  // } else {
+  //   alert('naaaaah');
+  // }
+
+  // = is an ASSINGMENT operater, MAKES IT THIS. doesnt CHECK anything. changes the value
+  // == is CHECKING but lazily. doesnt really care about the datatype too much as long as it matches
+  // === is CHECKING STRICTLY. strict equals that wants the EXACT DATATYPE. pretty much always use them
+
+// ---------------------------------------------------------------------------
+
+  var falseText = false;
+  var trueText = true;
+  var getButton = document.querySelector('button');
+  console.log(getButton);
+  // always place variables at the top of the code
+
+  getButton.onclick = function (){
+    console.log('clicked');
+    if (isTrue) {
+      makeTrue();
+    } else {
+      makeFalse();
+    };
+  };
+
+  function makeFalse () {
+    var getTitle = document.querySelector('h1');
+    console.log(getTitle);
+    getTitle.textContent = 'false..';
+  };
+
+  function makeTrue () {
+    var getTitle = document.querySelector('h1');
+    console.log(getTitle);
+    getTitle.textContent = 'true!!';
+  };
+
+// truthy falsy
+
+// ---------------------------------------------------------------------------
+
+  // var person = prompt('guess how old my cat is', 'pls bro');
+  //
+  // // if (colour != null) {
+  // //   document.getElementById('demo').innerHTML = 'yooo ' + colour + ' is a very epic colour, i also like it'
+  // // };
+  //
+  // if (person == 8) {
+  //   console.log('u got it');
+  // } else {
+  //   console.log('oh thats not it lol');
+  //   var person = prompt('lol wrong go again');
+  // }
+  //
+  // console.log(person);
+
+// ---------------------------------------------------------------------------
+
+var startQuiz = document.querySelector('#quizBtn');
+
+startQuiz.onclick = function() {
+  theQuiz();
+};
+
+function theQuiz(){
+
+  var score = 0;
+
+  var person = prompt('yo whats ur name', 'put it here');
+  alert('nice, welcome to prompt hell, ' + person + '' );
+  var q1 = parseInt(prompt('guess how old my cat is, ' + person + '! your score right now is ' + score + '!'));
+
+  if (q1 === 8) {
+    score += 1;
+    alert('woah, u got it! onto the next one. your score right now is ' + score + '!');
+  } else if (q1 < 0) {
+    score =- 1;
+    alert('oh funny guy over here huh? my cat is real! i am deducting a point! your score right now is ' + score + '!')
+  } else if (q1 < 8) {
+    alert('nope, she\'s a bit older than that! your score right now is ' + score + '!')
+  } else if (q1 > 8 && q1 < 25) {
+    alert('nope, she\'s younger than that!! your score right now is ' + score + '!')
+  } else if (q1 > 25) {
+    alert('what... don\'t you think that\'s too old for cats...? your score right now is ' + score + '!')
+  } else {
+    alert('oh thats not it lol, onto the next one. your score right now is ' + score + '!');
+  };
+
+  // parseInt() takes a string and turns it into a number
+  var q2 = prompt('how many days left until today?');
+
+  if (q2 == 0) {
+    score += 1;
+    alert('you are right my friend ' + person + ', onto the next one. your score right now is ' + score + '!');
+  } else {
+    alert('you are wrong but thats okay, onto the next one. your score right now is ' + score + '!');
+  };
+
+  var q3 = prompt('how are you doing. like genuinely. how are you, ' + person + '?');
+
+  if (q3 === '') {
+    if (score == -1) {
+      score = -2;
+      alert('skipping my question?? honestly that hurt my feelings. your points are already in the negatives though.. so i\'ll deduct another point. your score is now ' + score + '! i hope you\'re happy!!');
+    } else {
+      score = 0;
+      alert('WOW rude SKIPPING MY KIND AND CARING QUESTION. i am going to reset your points. your score right now is ' + score + '!');
+    }
+    // end score conditional
+  } else if ( q3 === 'good')  {
+    score += 1;
+    alert('that\'s good to hear pal, here is an extra point to turn good to great (hopefully)! your score right now is ' + score + '!');
+  } else if (q3 === 'bad') {
+    score += 2;
+    alert('awww noo that\'s not it!! lemme try cheer you up with two extra points!! your score right now is ' + score + '!');
+  } else {
+    score += 1;
+    alert('gonna be honest that was a pity question to give you a point since theres no wrong answer. your score right now is ' + score + '!');
+  };
+
+  var q4 = prompt('ok here\'s a simple one. what colour is the sky (NO CHEATING!!!!!)');
+
+  if (q4 === 'blue') {
+    score += 1;
+    alert('nice job nice job nice job!! your score right now is ' + score + '!');
+  } else if (q4 === "sky blue" || q4 === "light blue") {
+    score += 1;
+    alert('well, you\'re technically right but you didnt need to make the distinguishment, just blue wouldve done haha. anyway, your score right now is ' + score + '!');
+  } else {
+    alert('idk how you messed that up but i am impressed. your score right now is ' + score + '!')
+  };
+
+  var q5 = parseInt(prompt('last question homie. how many days of class have we had so far as of the 4th of may?'));
+
+  if (q5 == 50) {
+    score += 1;
+    alert('oh impressive i honestly didnt think youd get it!! your score right now is ' + score + '!');
+  } else if ( q5 < 47 ) {
+      alert('you were a bit too low, the answer is higher than that! your score right now is ' + score + '!');
+  } else if ( q5 > 53 ) {
+      alert('you were a bit too high, we\'ve had less days than that! your score right now is ' + score + '!');
+  } else if (q5 <= 52 || q5 >= 48) {
+      score += .5;
+      alert('your guess was really really close, so how about half of a point? your score right now is ' + score + '!');
+  } else {
+      alert('not right but a good try, your score right now is ' + score + '!');
+  };
+
+  alert('nice work ' + person + ', thanks for playin! your final score was ' + score + ' out of 5!');
+
+  console.log(person);
+
+  var getDomScore = document.querySelector('span');
+
+  getDomScore.textContent = score;
+
+  var yourAnswers = {
+    userAnswerQ1: q1,
+    userAnswerQ2: q2,
+    userAnswerQ3: q3,
+    userAnswerQ4: q4,
+    userAnswerQ5: q5
+  };
+
+  var correctAnswers = {
+    correctAnswerQ1: 8,
+    correctAnswerQ2: 0,
+    correctAnswerQ3: 'any answer would be right!',
+    correctAnswerQ4: 'blue',
+    correctAnswerQ5: 50
+  };
+
+  console.log(yourAnswers);
+  console.log(correctAnswers);
+
+  var getYourA1 = document.querySelector('.user1');
+  var getYourA2 = document.querySelector('.user2');
+  var getYourA3 = document.querySelector('.user3');
+  var getYourA4 = document.querySelector('.user4');
+  var getYourA5 = document.querySelector('.user5');
+
+  getYourA1.textContent = yourAnswers.userAnswerQ1;
+  getYourA2.textContent = yourAnswers.userAnswerQ2;
+  getYourA3.textContent = yourAnswers.userAnswerQ3;
+  getYourA4.textContent = yourAnswers.userAnswerQ4;
+  getYourA5.textContent = yourAnswers.userAnswerQ5;
+
+  var getCorrectA1 = document.querySelector('.correct1');
+  var getCorrectA2 = document.querySelector('.correct2');
+  var getCorrectA3 = document.querySelector('.correct3');
+  var getCorrectA4 = document.querySelector('.correct4');
+  var getCorrectA5 = document.querySelector('.correct5');
+
+  getCorrectA1.textContent = correctAnswers.correctAnswerQ1;
+  getCorrectA2.textContent = correctAnswers.correctAnswerQ2;
+  getCorrectA3.textContent = correctAnswers.correctAnswerQ3;
+  getCorrectA4.textContent = correctAnswers.correctAnswerQ4;
+  getCorrectA5.textContent = correctAnswers.correctAnswerQ5;
+
+};
+// theQuiz function ENDS here
+
+// ---------------------------------------------------------------------------
+
+  var stringThing = 'hello';
+  var numberString = '0325';
+  var makeItANumber = parseInt(numberString);
+
+  console.log(typeof numberString);
+  console.log(makeItANumber);
+  console.log(typeof makeItANumber);
+
+  // typeof tells you what kind of datatype you are working with
+  // black in the console log means its a string, blue means its a number!!
+
+</script>
+</html>
