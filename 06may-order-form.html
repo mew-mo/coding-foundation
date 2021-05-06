@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<style>
+		form {
+			width: 80%;
+			margin: 0 auto;
+		}
+
+		h2 {
+			text-align: center;
+		}
+
+		.order-panel,
+		.confirmation-panel {
+			text-align: center;
+			float: left;
+			width: 49%;
+			min-height: 75vh;
+			margin: 5px;
+			background-color: #efefef;
+		}
+
+		.form-control {
+			width: 70%;
+			margin-left: 15%;
+		}
+
+	</style>
+	<title>Order Form</title>
+</head>
+<body>
+
+	<div class="order-panel">
+		<h2>Order Form</h2>
+			<div class="form-group">
+				<label for="customer-name">Name</label>
+				<input class="form-control" id="customerName" placeholder="Your Name Here...">
+			</div>
+			<div class="form-group">
+				<label for="burger">Burger</label>
+				<select class="form-control" id="burger">
+					<option>Hamburger $2.50</option>
+					<option>Vegeterian Burger $5.00</option>
+					<option>Fish Burger $6.50</option>
+					<option>Steak Burger $9.99</option>
+					<option>Tofu Burger $3.00</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="drinks">Drink</label>
+				<select class="form-control" id="drinks">
+					<option>Coca Cola $2.50</option>
+					<option>Fanta $2.50</option>
+					<option>Pepsi $2.50</option>
+					<option>L&P $2.50</option>
+					<option>Apple Juice $3.00</option>
+				</select>
+			</div>
+			<button class="btn btn-primary">Order</button>
+	</div>
+
+	<div class="confirmation-panel">
+		<h2>Order Details</h2>
+		<h3 id="customerOutput"></h3>
+		<h3 id="burgerOutput"></h3>
+		<h3 id="drinkOutput"></h3>
+		<h2 id="priceOutput"></h2>
+	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<script>
+		// custom js here
+
+		(function(){
+			// set up button click event
+			// get the info when btn is clicked from the input ! it has an id which is good yep
+
+			var orderBtn = document.querySelector('.btn');
+
+			orderBtn.onclick = function(){
+				updateDetails();
+			};
+			// orderBtn onclick ENDS
+
+			function updateDetails(){
+
+	// ---------------------------------------------------------------- Customer Name Output
+
+				var getCustomerName = document.querySelector('#customerName').value;
+				console.log(getCustomerName);
+				var nameOutput = document.querySelector('#customerOutput');
+				nameOutput.innerHTML = 'Name: ' + getCustomerName;
+
+	// ---------------------------------------------------------------- Burger Name Output
+
+				var getBurger = document.querySelector('#burger').value;
+				var singleBurger = getBurger.split('$');
+				console.log(singleBurger);
+				var orderOutput = document.querySelector('#burgerOutput');
+				orderOutput.innerHTML = 'Burger: ' + singleBurger[0];
+
+	// ---------------------------------------------------------------- Drink Name Output
+
+				var getDrink = document.querySelector('#drinks').value;
+				var singleDrink = getDrink.split('$');
+				console.log(singleDrink);
+				var orderDrinkOutput = document.querySelector('#drinkOutput');
+				orderDrinkOutput.innerHTML = 'Drink: ' + singleDrink[0];
+
+	// ---------------------------------------------------------------- Pricing Output FOR BURGERS
+
+				var pricingOutput = document.querySelector('#priceOutput');
+				// splits the string so we can get the price as a new string
+				var getBurgerPrice = getBurger.split('$')[1];
+				// converts the string to a float (decimal)
+				var burgerPriceNum = parseFloat(getBurgerPrice);
+				// testing to make sure the float is an actual numerical input
+				console.log(burgerPriceNum + 5);
+
+				console.log(getBurgerPrice.length);
+
+// ---------------------------------------------------------------- Pricing Output FOR DRINKS
+
+				var getDrinkPrice = singleDrink[1];
+
+				var drinkPriceNum = parseFloat(getDrinkPrice);
+
+				var total = burgerPriceNum + drinkPriceNum;
+
+				// adds 0s to make the total price display properly
+				if (total.toString().length == 3) {
+					pricingOutput.innerHTML = 'Total: $' + total + '0';
+				} else if (total.toString().length == 1) {
+					pricingOutput.innerHTML = 'Total: $' + total + '.00';
+				} else {
+					pricingOutput.innerHTML = 'Total: $' + total;
+				};
+
+			};
+			// updateDetails ENDS
+
+		}());
+		// document ready function ENDS
+
+	</script>
+</body>
+</html>

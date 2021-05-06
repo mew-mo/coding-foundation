@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<style>
+		/* CSS Here */
+		* {
+			font-family: 'Source Sans Pro', sans-serif;
+			font-weight: 300;
+		}
+
+		body {
+			background-color: #333;
+			font-size: 30px;
+		}
+
+		h4 {
+			font-size: 54px;
+		}
+
+		div.clock {
+			border: 1px solid #000;
+			width: 25%;
+			margin: 0 auto;
+			margin-top: 8em;
+			padding: 1.5em;
+			background-color: #efefef;
+		}
+
+		button.btn {
+			display: block;
+			width: 100px;
+			margin: 0 auto;
+			margin-top: 20px;
+		}
+
+		.set-alarm{
+			margin-top: 40px;
+		}
+
+		.form-group {
+			width: 30%;
+			margin: 0 auto;
+			margin-top: 25px;
+		}
+
+	</style>
+</head>
+<body>
+
+	<div class="clock">
+		<h4 id="output">
+			<span id="hours"></span>
+			<span>:</span>
+			<span id="zeroM">0</span>
+			<span id="minutes"></span>
+			<span>:</span>
+			<span id="zeroS">0</span>
+			<span id="seconds"></span>
+		</h4>
+		<p id="statement"></p>
+	</div>
+
+	<div class="set-alarm">
+		<div class="form-group">
+			<input type="email" class="form-control" id="setHours" placeholder="Choose hours - use numbers in 24 hr format please">
+		</div>
+
+		<div class="form-group">
+			<input type="email" class="form-control" id="setMinutes" placeholder="Choose minutes - use numbers please">
+		</div>
+
+		<div class="form-group">
+			<input type="email" class="form-control" id="setSeconds" placeholder="Choose seconds">
+		</div>
+
+		<button class="btn btn-primary" id="setAlarm">SET ALARM</button>
+	</div>
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+
+	<script>
+
+	$(document).ready(function(){
+
+		// Task 1. *** Alarm Solution A
+		var alarmSong = new Audio('takeoff.mp3');
+
+		// Task 4. An array that will take values for the alarm, placed high in the code
+		// for all too see ...
+		var alarmCheck = [0, 0, 0];
+
+		// Access Elements In The HTML
+		var getHoursHtml = document.getElementById('hours');
+		var getMinutesHtml = document.getElementById('minutes');
+		var getSecondsHtml = document.getElementById('seconds');
+		var statement = document.getElementById('statement');
+
+		// ---------------------------------------------------------------
+
+		// Use the date constructor, to make a date and time object
+		var timeStamp = new Date();
+
+		// Assign times to variables
+		var hours = timeStamp.getHours();
+		var minutes = timeStamp.getMinutes();
+		var seconds = timeStamp.getSeconds();
+
+		// Update the DOM or HTML with the time values from the variables above
+		getHoursHtml.textContent = hours;
+		getMinutesHtml.textContent = minutes;
+		getSecondsHtml.textContent = seconds;
+
+		// console.dir(timeStamp);
+		console.log(hours);
+		console.log(minutes);
+		console.log(seconds);
+
+		// ::::::Digital Clock Per Second::::::
+		setInterval(function () {
+			// Reset new date object timeStampB every second
+			var timeStampB = new Date();
+
+			var hours = timeStampB.getHours();
+			var minutes = timeStampB.getMinutes();
+			var seconds = timeStampB.getSeconds();
+
+			getHoursHtml.textContent = hours;
+			getMinutesHtml.textContent = minutes;
+			getSecondsHtml.textContent = seconds;
+
+			// *** Task 3. solution also in HTML above lines 48 & 51
+			function fixingTheZeros () {
+				// Fix Minutes Display
+				// If minutes are less than or equal to 9
+				if (minutes <= 9) {
+					$('#zeroM').show();
+				} else {
+					$('#zeroM').hide();
+				};
+
+				// Fix Seconds Display
+				// If seconds are less than or equal to 9
+				if (seconds <= 9) {
+					$('#zeroS').show();
+				} else {
+					$('#zeroS').hide();
+				}
+			};
+			// fixingTheZeros ENDS
+
+			// Call the function
+			fixingTheZeros();
+
+			// Task 4. Check the alarmCheck Array every second.....
+			if (hours == alarmCheck[0] && minutes == alarmCheck[1] && seconds == alarmCheck[2]) {
+				console.log('go');
+				// Calling the alarm sound
+				alarmSong.play();
+			};
+
+		}, 1000);
+
+		// Task 2. Change color and text of Alarm Button when it is clicked
+		// Using a jQuery pattern to set a click event
+		$('#setAlarm').click(function () {
+			// jQuery to change the css...
+			$('#setAlarm').css('background-color', 'red');
+			$('#setAlarm').css('width', '250');
+
+			// Task 4. Calling the setTheAlarm function
+			setTheAlarm();
+
+			// Vanilla js to change the text...
+			var getButton = document.querySelector('button');
+			getButton.textContent = 'Alarm Set for: ' + alarmCheck[0] + ' : ' + alarmCheck[1] + ' : ' + alarmCheck[2];
+		});
+		// Button Click Event ENDS
+
+		// Task 4. Making the set alarm function called when the button is clicked
+		function setTheAlarm () {
+			// Get 3 values from the inputs in the html/DOM/UI --- lines 67 - 78
+			console.log($('#setHours').val());
+			console.log($('#setMinutes').val());
+			console.log($('#setSeconds').val());
+			// Assign values of input into the array at the top of this script - alarmCheck
+			alarmCheck[0] = $('#setHours').val();
+			alarmCheck[1] = $('#setMinutes').val();
+			alarmCheck[2] = $('#setSeconds').val();
+			console.log(alarmCheck);
+		};
+		// setTheAlarm ENDS
+
+	});
+	// Document Ready ENDS
+
+	</script>
+</body>
+</html>
