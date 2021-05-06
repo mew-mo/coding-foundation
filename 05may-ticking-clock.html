@@ -35,6 +35,8 @@
 		}
 ​
 		.set-alarm{
+			display: grid;
+			place-items: center;
 			width: 40%;
 			margin-top: 40px;
 		}
@@ -92,6 +94,8 @@
 
 		// creates variable that contains an mp3
 		var alarm = new Audio('takeoff.mp3');
+
+		var alarmCheck = [0, 0, 0];
 
 		// Access Elements In The HTML
 		var getHoursHtml = document.getElementById('hours');
@@ -171,15 +175,23 @@
 
 				var alarmBtn = document.querySelector('#setAlarm');
 
-				alarmBtn.onclick = function(){
 
-					var userHours = document.querySelector('#setHours').value;
-					var userMinutes = document.querySelector('#setMinutes').value;
-					var userSeconds= document.querySelector('#setSeconds').value;
+				var userHours = document.querySelector('#setHours').value;
+				var userMinutes = document.querySelector('#setMinutes').value;
+				var userSeconds= document.querySelector('#setSeconds').value;
+
+				alarmBtn.onclick = function(){
 
 					alarmBtn.innerHTML = "ALARM SET FOR " + userHours + ":" + userMinutes + ":" + userSeconds;
 					alarmBtn.style.backgroundColor = '#c94240';
+					console.log(minutes);
 
+				};
+				// alarmbtn onclick ENDS
+
+				if ((hours == userHours) && (minutes == userMinutes) && (seconds == userSeconds)) {
+					console.log('alarm GOGO?');
+					alarm.play();
 				};
 
 			};

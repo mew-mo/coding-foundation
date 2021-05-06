@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+
+<!-- 07 MAY -  -->
+
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Switch Statements</title>
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<style>
+
+
+	</style>
+</head>
+<body>
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+
+	<script>
+		console.log('sup');
+
+		// switch statements check the value of something
+		// switch statements check STRICTLY, like the === triple equals hehe
+		// switch is like a preset function, that takes an argument :D
+
+//  BASIC switch statement ----------------------------------------------------------------------
+
+		var x = 1;
+
+		switch(x) {
+			case 1:
+				console.log('x is one');
+				break;
+		// BREAKS end the switch statement - but you do not need to run break?
+		// if you take away the break, it goes to the next case immediately even though the next one isn't true
+
+			case 'hey':
+				console.log('x is saying wassupp');
+				break;
+
+			case 3:
+				break;
+
+			default:
+				console.log('x is invalid');
+			// the default case is what runs if none of the other cases are true
+		};
+		// end switch
+
+//  MULTIPLE CASE switch statement ------------------------------------------------------------
+
+		var fruit = 'watermelon';
+
+		switch(fruit) {
+
+			case 'watermelon':
+			case 'kiwifruit':
+			case 'orange':
+				console.log(fruit + ' yeaaaa thats a fruit');
+				break;
+
+			default:
+				console.log(fruit + ' is not a fruit lol :/');
+				break;
+		};
+		// end switch
+
+		// definitely
+
+// ------------------------------------------------------------------------------------------
+
+		var dayOfTheWeek = 5;
+
+		switch(dayOfTheWeek) {
+
+			case 1:
+				console.log('its monday yo');
+				break;
+
+			case 2:
+				console.log('its tuesday woo');
+				break;
+
+			case 3:
+				console.log('its wednesday aaaaa');
+				break;
+
+			case 4:
+				console.log('its thursday :0');
+				break;
+
+			case 5:
+				console.log('its FRIDAY!!! POG');
+				break;
+
+			case 6:
+				console.log('its funky fresh saturday');
+				break;
+
+			case 7:
+				console.log('its surely sunday');
+				break;
+
+			default:
+				console.log('lol thats not a day haha INVALID');
+				break;
+		};
+
+// ------------------------------------------------------------------------------------------
+
+
+	</script>
+</body>
+</html>
