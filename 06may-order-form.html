@@ -61,6 +61,16 @@
 					<option>Apple Juice $3.00</option>
 				</select>
 			</div>
+			<div class="form-group">
+				<label for="sides">Sides</label>
+				<select class="form-control" id="sides">
+					<option>Fries $2.50</option>
+					<option>Hash Brown $3.00</option>
+					<option>Salad $3.50</option>
+					<option>Chicken Nuggets $3.50</option>
+					<option>Soft Serve $1.50</option>
+				</select>
+			</div>
 			<button class="btn btn-primary">Order</button>
 	</div>
 
@@ -69,6 +79,7 @@
 		<h3 id="customerOutput"></h3>
 		<h3 id="burgerOutput"></h3>
 		<h3 id="drinkOutput"></h3>
+		<h3 id="sideOutput"></h3>
 		<h2 id="priceOutput"></h2>
 	</div>
 
@@ -112,6 +123,14 @@
 				var orderDrinkOutput = document.querySelector('#drinkOutput');
 				orderDrinkOutput.innerHTML = 'Drink: ' + singleDrink[0];
 
+	// ---------------------------------------------------------------- Side Name Output
+
+				var getSide = document.querySelector('#sides').value;
+				var singleSide = getSide.split('$');
+				console.log(singleSide);
+				var orderSideOutput = document.querySelector('#sideOutput');
+				orderSideOutput.innerHTML = 'Side: ' + singleSide[0];
+
 	// ---------------------------------------------------------------- Pricing Output FOR BURGERS
 
 				var pricingOutput = document.querySelector('#priceOutput');
@@ -130,16 +149,43 @@
 
 				var drinkPriceNum = parseFloat(getDrinkPrice);
 
-				var total = burgerPriceNum + drinkPriceNum;
+
+// ---------------------------------------------------------------- Pricing Output FOR SIDES
+
+				var getSidePrice = singleSide[1];
+
+				var sidePriceNum = parseFloat(getSidePrice);
+
+				var total = burgerPriceNum + drinkPriceNum + sidePriceNum;
 
 				// adds 0s to make the total price display properly
-				if (total.toString().length == 3) {
+
+
+				// if (total.toString().length == 3) {
+				// 	pricingOutput.innerHTML = 'Total: $' + total + '0';
+				// } else if (total.toString().length == 1) {
+				// 	pricingOutput.innerHTML = 'Total: $' + total + '.00';
+				// } else {
+				// 	pricingOutput.innerHTML = 'Total: $' + total;
+				// };
+
+				// CHANGING THE ABOVE CODE TO A SWITCH PATTERN! both work tho
+
+				switch (total.toString().length) {
+
+				 case 3:
 					pricingOutput.innerHTML = 'Total: $' + total + '0';
-				} else if (total.toString().length == 1) {
+					break;
+
+				 case 1:
 					pricingOutput.innerHTML = 'Total: $' + total + '.00';
-				} else {
+					break;
+
+				 default:
 					pricingOutput.innerHTML = 'Total: $' + total;
+					break;
 				};
+
 
 			};
 			// updateDetails ENDS
