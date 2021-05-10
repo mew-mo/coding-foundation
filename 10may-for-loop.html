@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>For Loop</title>
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<style>
+		/* CSS Here */
+		ul {
+			margin: 25px;
+			border: 1px solid;
+		}
+		ul li {
+			font-size: 44px;
+			font-weight: 400;
+		}
+	</style>
+</head>
+<body>
+	<ul id="animals">
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+	<button id="animalUpdate">UPDATE LIST :D</button>
+
+	<ul id="cities">
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+	<button id="cityUpdate">UPDATE LIST :D</button>
+
+
+	<ul id="fish">
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+	<button id="fishUpdate">UPDATE LIST :D</button>
+
+	<p>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+	</p>
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+	<script>
+
+		// **Task read and run the code to improve your understanding...open console
+
+		$(document).ready(function(){
+
+			// When the loop first runs var i is set to 0
+			// If i is less than 10 ... increment i by 1 '++'
+			// Loop runs until i IS NOT less than 10 / If i is less than 5 another loope cycle will run
+
+			var i;
+
+			// for (i = 0; i < 10; i++)  {
+		  // 	// Every loop cycle the code within the brackets will run
+		  //   console.log(i + ' hihi');
+			// 	document.write('hewwo worlfd\n');
+			// 	//  \n is a new line space !!
+			//
+			// 	console.dir(document);
+			// };
+
+
+			// for (i = 0; i < 13; i++)  {
+			// 	// console.log(typeof i);
+			// 	//
+			// 	// console.log(i);
+			//
+			// 	if (i === 0) {
+			// 		console.log('C');
+			// 	};
+			//
+			// 	if (i === 1) {
+			// 		console.log('I');
+			// 	}
+			//
+			// 	if (i === 2 || i === 4) {
+			// 		console.log('A');
+			// 	}
+			//
+			// 	if (i === 3) {
+			// 		console.log('R');
+			// 	}
+			//
+			// 	if (i === 5) {
+			// 		console.log('N');
+			// 	}
+			// 	if (i === 6) {
+			// 		console.log(' ');
+			// 	}
+			// 	if (i === 7) {
+			// 		console.log('S');
+			// 	}
+			// 	if (i === 8) {
+			// 		console.log('L');
+			// 	}
+			// 	if (i === 9) {
+			// 		console.log('O');
+			// 	}
+			// 	if (i === 10) {
+			// 		console.log('W');
+			// 	}
+			// 	// if (i === 11) {
+			// 	// 	console.log('l');
+			// 	// }
+			// 	// if (i === 12) {
+			// 	// 	console.log('e');
+			// 	// }
+			// };
+
+
+			// for (i = 0; i < 13; i++)  {
+			// 	// console.log(typeof i);
+			// 	//
+			// 	// console.log(i);
+			//
+			// 	if (i === 0 || i === 3) {
+			// 		console.log('A');
+			// 	};
+			//
+			// 	if (i === 1) {
+			// 		console.log('M');
+			// 	}
+			//
+			// 	if (i === 2) {
+			// 		console.log('B');
+			// 	}
+			//
+			// 	if (i === 3) {
+			// 		console.log('R');
+			// 	}
+			//
+			// };
+
+			// for (i = 0; i < 8; i++)  {
+			//
+			// 	if (i === 0) {
+			// 		console.log('C');
+			// 	};
+			//
+			// 	if (i === 1) {
+			// 		console.log('H');
+			// 	}
+			//
+			// 	if ((i < 3 && i > 1) || (i < 8 && i > 6)) {
+			// 		console.log('A');
+			// 	}
+			//
+			// 	if (i === 3) {
+			// 		console.log('R');
+			// 	}
+			//
+			// 	if (i === 4) {
+			// 		console.log('I');
+			// 	}
+			//
+			// 	if ((i < 6 && i > 4 ) || (i < 7 && i > 5)) {
+			// 		console.log('S');
+			// 	}
+			//
+			// };
+
+// ------------------------------------------------------------------------------------------------------------- for loops above yo
+
+			var fruits = ['apples', 'watermelons', 'apples', 'watermelons', 'grapes', 'watermelons', 'cherries', 'kiwifruit', 'mandarins', 'watermelons'];
+
+			var getWatermelon = fruits[3];
+
+			var animals = ['cat', 'fox', 'dog', 'ferret', 'wolf', 'chicken', 'bunny', 'quokka'];
+
+			var cities = ['wellington', 'tokyo', 'jakarta', 'melbourne', 'london', 'los angeles']
+
+			var getList = document.querySelectorAll('#animals li')
+			console.log(getList);
+
+			var getCityList = document.querySelectorAll('#cities li');
+			console.log(getCityList);
+
+
+			console.log(fruits.length);
+
+
+			function runLoopA() {
+				for (var i = 0; i < fruits.length; i++) {
+					// fruits[i];
+					// console.log(fruits[i]);
+					if (fruits[i] === 'apples') {
+						console.log(fruits[i]);
+						console.log('there are ' + fruits[i]);
+					}
+
+					if (fruits[i] === 'watermelons') {
+						console.log(fruits[i]);
+						console.log('there are ' + fruits[i]);
+					}
+
+				};
+				// for loop ends
+			};
+		// function ENDS
+
+		// call the function
+			// runLoopA();
+
+		//**************************** PSEUDO CODE **********************************
+		// 1. get my hands on the list Elements
+		// 2, check with console
+		// 3. see if i can update the list Elements
+		// 4, put list element code in the loop
+		// 5. update loop to add animals to list elements
+
+			// for (var i = 0; i < animals.length; i++) {
+			// 	console.log(animals[i]);
+			// }
+
+			function updateAnimals(){
+				for (var i = 0; i < getList.length; i++) {
+					// console.log(getList[i]);
+					getList[i].innerHTML = animals[i];
+				};
+			};
+
+			function updateCities(){
+				for (var i = 0; i < getCityList.length; i++) {
+					getCityList[i].innerHTML = cities[i];
+				};
+			};
+			// WRAP THEM IN FUNCTIONS to avoid naming conflicts between variables --> this is because code inside functions is HIDDEN from the rest of the code and will not cause conflicts. epic . since you use 'i' a lot, this is important
+
+
+// ------------------------------------------------------------------------------------------------------------- for loops w arrays updating dom above yo
+
+			//******* TASK 1 AND 2
+
+			var nzFish = ['smooth oreo', 'hapuku', 'giant stargazer', 'blue moki', 'pink maomao', 'dark ghostshark', 'silver dory', 'common bully'];
+
+			var getFishList = document.querySelectorAll('#fish li');
+			console.log(getFishList);
+
+			function updateFish(){
+				for (var i = 0; i < getFishList.length; i++) {
+					getFishList[i].innerHTML = nzFish[i];
+				};
+			};
+
+
+			var updateAnimalBtn = document.querySelector('#animalUpdate');
+			var updateCityBtn = document.querySelector('#cityUpdate');
+			var updateFishBtn = document.querySelector('#fishUpdate');
+
+			updateAnimalBtn.onclick = function(){
+				updateAnimals();
+			};
+
+			updateCityBtn.onclick = function() {
+				updateCities();
+			};
+
+			updateFishBtn.onclick = function() {
+				updateFish();
+			};
+
+			// ****** TASK 3
+
+			var arrWithManyTypes = [1, 2, 3, 'hello ', 12, 55, 'this ', ' is', ' a', true, 89, 'string.', false];
+
+			var getSpans = document.querySelectorAll('span');
+			console.dir(getSpans);
+
+			let numbersOnly = (val) => {
+				if (typeof(val) === 'number') {
+					return val;
+				}
+			};
+
+			for (var i = 0; i < arrWithManyTypes.length; i++) {
+
+				// ******* i
+				// if (typeof(arrWithManyTypes[i]) === 'number' ) {
+				// 	console.log(arrWithManyTypes[i]);
+				// }
+
+				// ****** ii
+				// let arrayNumbers = arrWithManyTypes.filter(numbersOnly);
+				// if (arrayNumbers[i] > 10 && arrayNumbers[i] < 80) {
+				// 	console.log(arrayNumbers[i]);
+				// };
+
+				// ****** iii
+				// if (typeof(arrWithManyTypes[i]) === 'string') {
+				// 	console.log(arrWithManyTypes[i]);
+				// };
+
+				// ****** iv
+				if (typeof(arrWithManyTypes[i]) === 'string') {
+					getSpans[i].innerHTML = arrWithManyTypes[i];
+				};
+
+			};
+
+		});
+		// document ready ENDS
+	</script>
+</body>
+</html>
