@@ -50,13 +50,12 @@
 	<button id="fishUpdate">UPDATE LIST :D</button>
 
 	<p>
-		<span></span>
-		<span></span>
-		<span></span>
-		<span></span>
-		<span></span>
+		<span>a</span>
+		<span>b</span>
+		<span>c</span>
+		<span>d</span>
+		<span>e</span>
 	</p>
-
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 
@@ -255,15 +254,29 @@
 
 			var nzFish = ['smooth oreo', 'hapuku', 'giant stargazer', 'blue moki', 'pink maomao', 'dark ghostshark', 'silver dory', 'common bully'];
 
+			var rating = ['i like its name', 'i think its name is funny', 'i have no strong opinions'];
+
 			var getFishList = document.querySelectorAll('#fish li');
 			console.log(getFishList);
 
 			function updateFish(){
 				for (var i = 0; i < getFishList.length; i++) {
-					getFishList[i].innerHTML = nzFish[i];
+					// getFishList[i].innerHTML = nzFish[i];
+					if (nzFish[i] === 'smooth oreo') {
+						getFishList[i].innerHTML = nzFish[i] + ' : ' + rating[1];
+					} else if (nzFish[i] === 'hapuku') {
+						getFishList[i].innerHTML = nzFish[i] + ' : ' + rating[2];
+					} else if (nzFish[i] === 'giant stargazer') {
+						getFishList[i].innerHTML = nzFish[i] + ' : ' + rating[0];
+					} else if (nzFish[i] === 'blue moki') {
+						getFishList[i].innerHTML = nzFish[i] + ' : ' + rating[0];
+					} else if (nzFish[i] === 'pink maomao') {
+						getFishList[i].innerHTML = nzFish[i] + ' : ' + rating[0];
+					} else if (nzFish[i] === 'dark ghostshark') {
+						getFishList[i].innerHTML = nzFish[i] + ' : ' + rating[1];
+					};
 				};
 			};
-
 
 			var updateAnimalBtn = document.querySelector('#animalUpdate');
 			var updateCityBtn = document.querySelector('#cityUpdate');
@@ -281,16 +294,23 @@
 				updateFish();
 			};
 
-			// ****** TASK 3
+			// ****** TASK 3 -----------------------------------------------------------------------------------------------
 
 			var arrWithManyTypes = [1, 2, 3, 'hello ', 12, 55, 'this ', ' is', ' a', true, 89, 'string.', false];
+			var stringArr = [];
 
-			var getSpans = document.querySelectorAll('span');
+			var getSpans = document.querySelectorAll('p span');
 			console.dir(getSpans);
 
 			let numbersOnly = (val) => {
 				if (typeof(val) === 'number') {
 					return val;
+				}
+			};
+
+			let stringsOnly = (strVal) => {
+				if (typeof(strVal) === 'string') {
+					return strVal;
 				}
 			};
 
@@ -300,23 +320,36 @@
 				// if (typeof(arrWithManyTypes[i]) === 'number' ) {
 				// 	console.log(arrWithManyTypes[i]);
 				// }
+				// ****** ANS i
 
 				// ****** ii
 				// let arrayNumbers = arrWithManyTypes.filter(numbersOnly);
 				// if (arrayNumbers[i] > 10 && arrayNumbers[i] < 80) {
 				// 	console.log(arrayNumbers[i]);
 				// };
+				// ****** ANS ii
 
 				// ****** iii
 				// if (typeof(arrWithManyTypes[i]) === 'string') {
 				// 	console.log(arrWithManyTypes[i]);
 				// };
+				// ****** ANS iii
 
 				// ****** iv
-				if (typeof(arrWithManyTypes[i]) === 'string') {
-					getSpans[i].innerHTML = arrWithManyTypes[i];
-				};
 
+				// WORKS *****
+				// let arrayStrings = arrWithManyTypes.filter(stringsOnly);
+				// getSpans[i].innerHTML = arrayStrings[i];
+
+				if (typeof(arrWithManyTypes[i]) === 'string') {
+					stringArr.push(arrWithManyTypes[i]);
+				};
+				// ****** ANS iv
+			};
+			// for loop ENDS
+
+			for (var i = 0; i < stringArr.length; i++) {
+				getSpans[i].innerHTML = stringArr[i];
 			};
 
 		});
