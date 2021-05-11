@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<style>
+		form {
+			width: 80%;
+			margin: 0 auto;
+		}
+
+		h2 {
+			text-align: center;
+		}
+
+		.order-panel,
+		.confirmation-panel {
+			text-align: center;
+			float: left;
+			width: 49%;
+			min-height: 75vh;
+			margin: 5px;
+			background-color: #efefef;
+		}
+
+		.promo-panel {
+			margin-top: 50px;
+		}
+
+		.the-lists {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		 ul,
+		 li {
+		 	list-style: none;
+			font-size: 2rem;
+		}
+
+		#userCode {
+			width: 30%;
+			margin: 20px;
+		}
+
+	</style>
+	<title>Document</title>
+</head>
+<body>
+
+	<div class="order-panel">
+		<h2>Order Form</h2>
+
+			<!-- Customer Name  -->
+			<div class="form-group">
+				<label for="customer-name">Name</label>
+				<input class="form-control" id="customerName" placeholder="Your Name Here...">
+			</div>
+
+			<!-- Burger Selection  -->
+			<div class="form-group">
+				<label for="burger">Burger</label>
+				<select class="form-control" id="burger">
+					<option>Hamburger $12.95</option>
+					<option>Vegeterian Burger $5.20</option>
+					<option>Fish Burger $18.95</option>
+					<option>Steak Burger $18.95</option>
+					<option>Tofu Burger $10.95</option>
+				</select>
+			</div>
+
+			<!-- Drinks Selection  -->
+			<div class="form-group">
+				<label for="drinks">Drinks</label>
+				<select class="form-control" id="drinks">
+					<option>Coke $2.95</option>
+					<option>Sprite $2.20</option>
+				</select>
+			</div>
+
+			<input type="checkbox" id="promoCheck" name="promoCheck" value="" checked>
+			<label for="promoCheck">I have a promo code</label><br>
+
+			<input type="text" id="userCode" name="userCode" value="" placeholder="Insert Promo Code Here"><br>
+
+			<button class="btn btn-primary" id="order">Order</button>
+
+	</div>
+
+<!-- Order Details Screen -->
+	<div class="confirmation-panel">
+		<h2>Order Details</h2>
+		<h3 id="customerNameDetails"></h3>
+		<ul>
+			<li id="burgerDetails"></li>
+			<li id="drinksDetails"></li>
+		</ul>
+		<h3>Total:<span id="amountTotal"></span></h3>
+
+
+		<div class="promo-panel">
+			<h2>Promotion</h2>
+			<h3 id="whatPromotion"></h3>
+
+			<div class="the-lists">
+				<ul id="lessThan15Promo">
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+				<ul id="moreThan15Promo">
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+				<ul id="moreThan20Promo">
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+			</div>
+
+		</div>
+
+	</div>
+	<!-- Order Details Screen ENDS -->
+
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<script>
+		// custom js here
+		$(window).ready(function(){
+
+			prices = {
+				burgerPrices: {
+					ham: 12.95,
+					vege: 5.20,
+					fish: 18.95,
+					steak: 18.95,
+					tofu: 10.95
+				},
+				drinkPrices: {
+					coke: 2.95,
+					sprite: 2.20
+				}
+			};
+
+			var promotions = {
+					lessThan15: ['WOWPROMO', '1x Fries', '1x Hash Brown Coupon', '1x Free Sauce'],
+					moreThan15: ['IAMHUNGRY','1x Burger', '1x Drink', '1x Ice-Cream'],
+					moreThan20: ['REALCODE','1x Burger', '2x Drinks', '2x Ice-Creams', '1x Car Wash Ticket']
+			};
+
+			var burgerPriceArr = [];
+			var drinkPriceArr = [];
+
+			var whatPromoText = document.querySelector('#whatPromotion');
+
+			var lessThan15List = document.querySelector('#lessThan15Promo');
+			var moreThan15List = document.querySelector('#moreThan15Promo');
+			var moreThan20List = document.querySelector('#moreThan20Promo');
+
+			var lessThan15PromoItems = document.querySelectorAll('#lessThan15Promo li');
+			var moreThan15PromoItems = document.querySelectorAll('#moreThan15Promo li');
+			var moreThan20PromoItems = document.querySelectorAll('#moreThan20Promo li');
+
+			var checkbox = document.querySelector('#promoCheck');
+			var userPromoCode = document.querySelector('#userCode');
+			console.dir(userPromoCode);
+
+			for (var i = 0; i < Object.entries(prices.burgerPrices).length; i++) {
+				burgerPriceArr.push(Object.entries(prices.burgerPrices)[i][1]);
+			};
+
+			for (var i = 0; i < Object.entries(prices.drinkPrices).length; i++) {
+				drinkPriceArr.push(Object.entries(prices.drinkPrices)[i][1]);
+			};
+
+			// 1. Add a click event to the order button
+			// remember to console.log to test the click
+			$('#order').click(function () {
+					// Calling the function
+					updateDetails();
+			});
+			// click Event ENDS
+
+			function updateDetails () {
+				// Get CUSTOMER NAME info and output to details page
+				// Vanilla .js for the rest of my code
+				// Getting customer name input
+				var getCustName = document.getElementById('customerName');
+				console.dir(getCustName.value);
+				// Applying customer input for name to the order details page/div
+				var getCustDetails = document.getElementById('customerNameDetails');
+				getCustDetails.textContent = getCustName.value;
+
+
+				// Do the same for the SELECT BURGER input
+				// Get the value of the burger select input
+				var getBurger = document.getElementById('burger').value;
+				// Gets the html list element on the right hand side details page
+				var getBurgerList = document.getElementById('burgerDetails');
+				// Changes the text of the list element -- updates the details page
+				getBurgerList.textContent = getBurger;
+
+				// Gets the html list element on the right hand side details page
+				var getDrinksList = document.getElementById('drinksDetails');
+				// Get the DRINKS selector value
+				var getDrinks = document.getElementById('drinks').value;
+				// Changes the text of the list element -- updates the details page
+				getDrinksList.textContent = getDrinks;
+
+				// *** WORKING WITH NUMBERS AND THE TOTAL PRICE ***
+				// Get the total/amount element from the details page
+				var getTotal = document.getElementById('amountTotal');
+
+				// Using and if statement to check for a string match, then grabbing
+				// A price from the object above, line 85 - 97
+				if (getBurger === 'Hamburger $12.95' && getDrinks === 'Coke $2.95') {
+					// Adding the 2 object prices together
+					grandTotal = prices.burgerPrices.ham + prices.drinkPrices.coke;
+					console.log(grandTotal);
+					// Using toFixed() to cut down the decimal points to 2
+					// https://www.w3schools.com/jsref/jsref_tofixed.asp
+					getTotal.textContent = ' $' + grandTotal.toFixed(2);
+				}
+				if (getBurger === 'Hamburger $12.95' && getDrinks === 'Sprite $2.20') {
+					// Adding the 2 object prices together
+					grandTotal = prices.burgerPrices.ham + prices.drinkPrices.sprite;
+					console.log(grandTotal);
+					// Using toFixed() to cut down the decimal points to 2
+					getTotal.textContent = ' $' + grandTotal.toFixed(2);
+				}
+			// Hamburger combinations END
+			// Vegeterian Burger combinations Logic START
+				if (getBurger === 'Vegeterian Burger $5.20' && getDrinks === 'Coke $2.95') {
+					// Adding the 2 object prices together
+					grandTotal = prices.burgerPrices.vege + prices.drinkPrices.coke;
+					console.log(grandTotal);
+					// Using toFixed() to cut down the decimal points to 2
+					getTotal.textContent = ' $' + grandTotal.toFixed(2);
+				}
+				if (getBurger === 'Vegeterian Burger $5.20' && getDrinks === 'Sprite $2.20'){
+					// Adding the 2 object prices together
+					grandTotal = prices.burgerPrices.vege + prices.drinkPrices.sprite;
+					console.log(grandTotal);
+					// Using toFixed() to cut down the decimal points to 2
+					getTotal.textContent = ' $' + grandTotal.toFixed(2);
+				}
+			// Vegeterian combinations END
+			// Fish burger combinations START
+				if (getBurger === 'Fish Burger $18.95' && getDrinks === 'Coke $2.95') {
+					// Adding the 2 object prices together
+					grandTotal = prices.burgerPrices.fish + prices.drinkPrices.coke;
+					console.log(grandTotal);
+					// Using toFixed() to cut down the decimal points to 2
+					getTotal.textContent = ' $' + grandTotal.toFixed(2);
+				}
+			//
+				if (getBurger === 'Fish Burger $18.95' && getDrinks === 'Sprite $2.20'){
+					// Adding the 2 object prices together
+					grandTotal = prices.burgerPrices.fish + prices.drinkPrices.sprite;
+					console.log(grandTotal);
+					// Using toFixed() to cut down the decimal points to 2
+					getTotal.textContent = ' $' + grandTotal.toFixed(2);
+				}
+			// Fish combinations END
+			// Steak burger combinations START
+				if (getBurger === 'Steak Burger $18.95' && getDrinks === 'Coke $2.95') {
+					// Adding the 2 object prices together
+					grandTotal = prices.burgerPrices.steak + prices.drinkPrices.coke;
+					console.log(grandTotal);
+					// Using toFixed() to cut down the decimal points to 2
+					getTotal.textContent = ' $' + grandTotal.toFixed(2);
+				}
+			//
+				if (getBurger === 'Steak Burger $18.95' && getDrinks === 'Sprite $2.20'){
+					// Adding the 2 object prices together
+					grandTotal = prices.burgerPrices.steak + prices.drinkPrices.sprite;
+					console.log(grandTotal);
+					// Using toFixed() to cut down the decimal points to 2
+					getTotal.textContent = ' $' + grandTotal.toFixed(2);
+				}
+			// Steak combinations ENDS
+			// Tofu burger combinations START
+				if (getBurger === 'Tofu Burger $10.95' && getDrinks === 'Coke $2.95') {
+					// Adding the 2 object prices together
+					grandTotal = prices.burgerPrices.tofu + prices.drinkPrices.coke;
+					console.log(grandTotal);
+					// Using toFixed() to cut down the decimal points to 2
+					getTotal.textContent = ' $' + grandTotal.toFixed(2);
+				}
+			//
+				if (getBurger === 'Tofu Burger $10.95' && getDrinks === 'Sprite $2.20'){
+					// Adding the 2 object prices together
+					grandTotal = prices.burgerPrices.tofu + prices.drinkPrices.sprite;
+					console.log(grandTotal);
+					// Using toFixed() to cut down the decimal points to 2
+					getTotal.textContent = ' $' + grandTotal.toFixed(2);
+				}
+			// Tofu combinations ENDS
+
+		// --------------------------------------------------------------------------------------
+
+				if (checkbox.checked) {
+					if (grandTotal < 15 && userPromoCode == promotions.lessThan15[0]) {
+						whatPromoText.textContent = 'Spent less than $15? Check out these deals!';
+						itsLessThan15();
+						lessThan15List.style.display = 'block';
+						moreThan15List.style.display = 'none';
+						moreThan20List.style.display = 'none';
+					} else if (grandTotal > 15 && grandTotal < 20 && userPromoCode == promotions.moreThan15[0]) {
+						whatPromoText.textContent = 'Spent between $15 and $20? Check out these deals!';
+						itsMoreThan15();
+						moreThan15List.style.display = 'block';
+						lessThan15List.style.display = 'none';
+						moreThan20List.style.display = 'none';
+					} else if (grandTotal > 20 && userPromoCode == promotions.moreThan20[0]) {
+						whatPromoText.textContent = 'Spent more than $20? Check out these deals!';
+						itsMoreThan20();
+						moreThan20List.style.display = 'block';
+						lessThan15List.style.display = 'none';
+						moreThan15List.style.display = 'none';
+					} else {
+						whatPromoText.textContent = 'no deals for you :(';
+					};
+				} else {
+					whatPromoText.textContent = 'no deals for you, ' + getCustName.value + ' :(';
+					lessThan15List.style.display = 'none';
+					moreThan15List.style.display = 'none';
+					moreThan20List.style.display = 'none';
+				};
+
+	// ---------------------------------------------------------------------------------------------- checkbox promo above :)
+
+				function itsLessThan15(){
+					for (var i = 0; i < lessThan15PromoItems.length; i++) {
+						lessThan15PromoItems[i].textContent = promotions.lessThan15[i]
+					};
+				};
+
+				function itsMoreThan15(){
+					for (var i = 0; i < moreThan15PromoItems.length; i++) {
+						moreThan15PromoItems[i].textContent = promotions.moreThan15[i];
+					};
+				};
+
+				function itsMoreThan20(){
+					for (var i = 0; i < moreThan20PromoItems.length; i++) {
+						moreThan20PromoItems[i].textContent = promotions.moreThan20[i];
+					};
+				};
+
+
+			};
+			// ENDS
+
+		});
+	</script>
+</body>
+</html>
