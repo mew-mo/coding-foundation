@@ -102,11 +102,8 @@
 
 	<script>
 
-	// ***Task A: Use querySelectorAll() to update the table names, reference the object data
-	// make a function called 'updateTable' to wrap around your code
-
-	// *** Extra Can you make a loop function that loops through the first name html cells and
-	// loops through the object
+	// ***Task A: Extra Can you make a function that loops through the first-name html cells and
+	// loops through the object to update the text
 
 		$(document).ready(function(){
 
@@ -145,14 +142,23 @@
 			//  });
 
 			function updateTable () {
-				getTitleNames[0].textContent = newNamesData.Mark;
-				getTitleNames[1].textContent = newNamesData.Jacob;
-				getTitleNames[2].textContent = newNamesData.Larry;
-				getTitleNames[3].textContent = newNamesData.Al;
-				getTitleNames[4].textContent = newNamesData.Sarah;
-				getTitleNames[5].textContent = newNamesData.Harold;
-				// 5 more needed
-			}
+
+				// New kind of loop for looping over an object -- Tricky, good challenge!
+
+				// https://stackoverflow.com/questions/684672/how-do-i-loop-through-or-enumerate-a-javascript-object
+
+				var i = 0;
+
+				for (var key in newNamesData) {
+					if (newNamesData.hasOwnProperty(key)) {
+						getTitleNames[i].textContent = newNamesData[key];
+						console.log(key + '~>' + newNamesData[key]);
+						i++;
+					};
+				};
+
+
+			} // function ENDS
 
 
 		}); // Document Ready ENDS

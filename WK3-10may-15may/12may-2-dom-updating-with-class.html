@@ -97,7 +97,7 @@
 
 			// Using a for loop to loop over the array items and output them to the console
 			for (var i = 0; i < getTitles.length; i++) {
-				console.dir(getTitles[i]);
+				// console.dir(getTitles[i]);
 				// Here we are making each title bold
 				getTitles[i].style.fontWeight = 900;
 				// What is this code doing?
@@ -109,13 +109,12 @@
 
 				for (var i = 0; i < getTitles.length; i++) {
 					getTitles[i].textContent = newFirstNames[i];
+					console.log(newFirstNames[i]);
 				}
 
 			};
 
-			getBtn.onclick = function(){
-				updateFirstNames();
-			};
+			getBtn.onclick = updateFirstNames;
 
 		// }); // Document Ready ENDS
 

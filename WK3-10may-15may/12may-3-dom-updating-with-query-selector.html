@@ -117,6 +117,9 @@
 			var demoteCrimBtn = document.querySelector('#criminalsPay')
 			var getCriminals = document.querySelectorAll('.criminal');
 
+			var row3 = document.querySelector('.third-row');
+			var row4 = document.querySelector('.fourth-row');
+
 			console.log(getCriminals);
 
 			// querySelector All will put all of the found selectors into an array for use
@@ -146,14 +149,14 @@
 				};
 			}
 
-			getPromoteBtn.onclick = function(){
-				promoteCaptainsWithColor();
-			}
+			getPromoteBtn.onclick = promoteCaptainsWithColor;
 
 			demoteCrimBtn.onclick = function() {
 				for (var i = 0; i < getCriminals.length; i++) {
 					getCriminals[i].style.display = 'none';
 				}
+				row3.style.display = 'none';
+				row4.style.display = 'none';
 			};
 
 		// }); // Document Ready ENDS
