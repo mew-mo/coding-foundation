@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<style>
+
+		body {
+			height: 5000px;
+		}
+
+		.div-a,
+		.div-b,
+		.div-c,
+		.div-d {
+			background-color: #efefef;
+			margin: 15px;
+			width: 250px;
+			height: 250px;
+			float: left;
+			font-size: 35px;
+		}
+		.holder {
+			overflow: auto;
+		}
+		button.btn {
+			display: block;
+			width: 140px;
+			margin: 0 auto;
+		}
+	</style>
+	<title>Document</title>
+</head>
+<body>
+	<div class="holder">
+		<div class="div-a">DIV A</div>
+		<div class="div-b">DIV B</div>
+		<div class="div-c">DIV C</div>
+		<div class="div-d">DIV D</div>
+	</div>
+
+	<button class="btn btn-primary">Click Me</button>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<script>
+		// custom js here
+		$(window).ready(function(){
+
+			var button = document.querySelector('.btn');
+			var divA = document.querySelector('.div-a');
+			var divB = document.querySelector('.div-b');
+			var divC = document.querySelector('.div-c');
+			var divD = document.querySelector('.div-d');
+			var thaDivs = document.querySelectorAll('div');
+			//
+			// button.addEventListener('click', function () {
+			// 	// 'click' is the Type of event :D
+			// 	// CB function --> callback function here! like a slingshot-> when this happens, go do the function, automatically.
+			// 	console.log('aaaaa');
+			// }, false);
+			// // why is false here? -- method takes three arguments! string, function, boolean-- the boolean doesnt make sense, but its here i guess. its always false, if you change it to true you can control 'event bubbling', but you probably wont need to
+			//
+			// button.addEventListener('click', doStuffAfterClick, false);
+			// // wow you can call the function without parenthesis :0 AND WHY-- with parenthesis it wont attach the function to the event. without them, it is a reference. with them, itd run straight away.
+			// // there are three ways of setting up event listeners , the BIG DIFFERENCE - ONCLIck is ok for one offs, but eventlisteners u can do again and again whereas the first onclick will only be one off. not good programming practise. dont use onclick anymore. no more
+			//
+			// divA.addEventListener('mouseover', divAStuff, false);
+			//
+			// window.addEventListener('resize', function(){
+			// 	console.log('OHHH YOU\'RE RESIZING THE WINDOW??');
+			// }, false);
+			//
+			// window.addEventListener('scroll', function () {
+			// 	divB.style.color = 'turquoise';
+			// 	divB.style.height = '5000px';
+			// 	divB.style.fontSize = '7rem';
+			// 	divB.style.backgroundColor = '#bef2d8';
+			// }, false);
+			//
+			// function doStuffAfterClick () {
+			// 	// hiding the button
+			// 	button.style.display = 'none';
+			// };
+			//
+			// function divAStuff () {
+			// 	divA.style.width = '700px'
+			// 	// alert('wow you moused over it....!');
+			// };
+
+// ----------------------------------------------------------------------------------------------------------------------------------
+
+		//  EVENTS PART 2.... THE EVENT OBJECT
+
+		// argument and parameter time OH BOY
+
+			divA.addEventListener('click', function(){
+				console.log('clicked A');
+			}, false);
+
+			divB.addEventListener('click', function(o){
+				console.log('clicked b');
+				// logs the event object of the clicked element
+				console.log(o);
+				console.log(o.target);
+				// o.target is the actual element that was clicked
+				console.dir(o.target);
+				// o.target.style.display = 'none';
+
+				// to find the event object you just need to put an argument in and log it UWU
+				// the referential value is TARGET! tells u what was clicked. prety cool
+				// this is how you do it based on what the user is clicking on -- youd want to target multiple classes through smth like queryselectorall rather than just using divB like in this ex
+				console.log(this);
+				// this returns stuff and things for u
+			}, false);
+
+			// thaDivs.addEventListener('click', function(event){
+			// 	console.log(event.target.textContent);
+			// 	event.target.textContent = 'is me?';
+			// }, false);
+
+			// click method has one parameter called event
+			$('div').click(function(event){
+				console.log(event.target.textContent);
+				event.target.textContent = 'I have been clicked';
+				event.target.style.backgroundColor = '#bef2d8';
+				// used js to change the clicked element
+			});
+
+			// vanilla method of the above one! waow
+			// see you can still pass through one argument which below is 'e' hehe 
+			button.addEventListener('click', function(e){
+				event.target.textContent = 'I have been clicked';
+				event.target.style.backgroundColor = '#bef2d8';
+				event.target.style.color = '#50a780';
+			}, false);
+
+
+		});
+	</script>
+</body>
+</html>
