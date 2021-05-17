@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<style>
+
+	body {
+		padding: 50px;
+	}
+
+	.form-control {
+		width: 75%;
+	}
+
+	img {
+		/* display: none; */
+		margin-top: 30px;
+		padding: 10px;
+		float: left;
+	}
+
+	/* .display {
+		background-color: #e4e5f4;
+		height: 400px;
+	} */
+
+	label {
+		margin: 25px 0 10px 0;
+	}
+
+	button {
+		margin-top: 15px;
+	}
+
+	</style>
+	<title>Holiday</title>
+</head>
+<body>
+
+	<div class="container-fluid">
+
+		<div class="row">
+
+			<div class="col-md-3 box">
+				<div class="form-group">
+					<label for="nameInput">Name</label>
+					<input type="text" class="form-control" id="nameInput" placeholder="Insert Name Here">
+				</div>
+				<div class="form-group">
+					<label for="holiday">Select Holiday</label>
+					<select class="form-control" id="holiday">
+						<option>1</option>
+						<option>2</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label for="hotel">Select Hotel</label>
+					<select class="form-control" id="hotel">
+						<option>1</option>
+						<option>2</option>
+					</select>
+				</div>
+				<button class="btn btn-info">Book</button>
+
+			</div>
+			<!-- col ends lol -->
+
+			<div class="col-md-7 box display">
+				<h1>the big price of your holiday will show here</h1>
+				<!-- <img src="" id="samoaImg" alt="samoa"> -->
+				<!-- <img src="" id="fijiImg" alt="fiji">
+				<img src="" id="hiltonImg" alt="hilton">
+				<img src="" id="sheratonImg" alt="sheraton"> -->
+				<h3>:)</h3>
+			</div>
+
+		</div>
+		<!-- row ends lol -->
+
+	</div>
+	<!-- container ENDS -->
+
+<div class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Modal body text goes here.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<script src="custom.js"></script>
+</body>
+</html>
