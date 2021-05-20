@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>update w inputs n function patterns??</title>
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+	<style>
+		.form-inputs {
+			width: 60%;
+			margin: 0 auto;
+			background-color: #efefef;
+			padding: 20px;
+		}
+		h1 {
+			text-align: center;
+			font-family: 'Great Vibes', cursive;
+			font-size: 55px;
+		}
+		.holder	{
+			width: 60%;
+			margin: 0 auto;
+			background-color: #a5e8ff;
+			padding: 55px;
+			margin-top: 40px;
+			margin-bottom: 40px;
+		}
+		.button-hold {
+			text-align: center;
+			margin-top: 50px;
+		}
+		button {
+			width: 140px;
+			padding: 20px;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="holder">
+		<h1>Thursday the 20th of May 2021</h1>
+	</div>
+
+	<div class="form-inputs">
+		<div class="form-group">
+		  <label for="fontColor">Select Font Color</label>
+		  <input type="text" class="form-control" id="selectFontColor" placeholder="Select font color">
+		</div>
+		<div class="form-group">
+		  <label for="selectBackgroundColor">Select Background Color</label>
+		  <input type="text" class="form-control" id="selectBackgroundColor" placeholder="Select background color">
+		</div>
+		<div class="form-group">
+		  <label for="selectFontSize">Select Font Size</label>
+		  <input type="text" class="form-control" id="selectFontSize" placeholder="Select font size">
+		</div>
+	</div>
+
+	<div class="button-hold">
+		<button id="update" class="btn btn-primary">Update</button>
+	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+	<!-- Custom javascript -->
+	<script>
+
+		// ***Task: Complete the code so when the user clicks the update button, the DOM/HTML is
+		// updated and use function patterns like below...
+		$(document).ready(function (){
+
+			var programObject = {
+
+				// Get button for eventual click event
+				getUpdateButton: document.getElementById('update'),
+				getDiv: document.querySelector('.holder'),
+				getType: document.querySelector('.holder h1'),
+				getFontColor: 'nothing yet',
+				getBackgroundColor: 'nothing yet',
+				getFontSize: 'nothing yet',
+
+				// big cool initialisation function that gets the stuff and things going
+				init: function() {
+						programObject.getUpdateButton.onclick = function () {
+						// Call functions
+						programObject.updateFontColor();
+						programObject.updateBackgroundColor();
+						programObject.updateFontSize();
+					}
+				},
+				// init function ENDS
+
+			 updateFontColor: function () {
+					programObject.getFontColor = document.getElementById('selectFontColor').value;
+					programObject.getType.style.color = programObject.getFontColor;
+					console.log(programObject.getFontColor);
+				},
+				// function ENDS
+
+				updateBackgroundColor: function () {
+					programObject.getBackgroundColor = document.getElementById('selectBackgroundColor').value;
+					programObject.getDiv.style.backgroundColor = programObject.getBackgroundColor;
+					console.log(programObject.getBackgroundColor)
+				},
+				// function ENDS
+
+				updateFontSize: function () {
+					programObject.getFontSize = document.getElementById('selectFontSize').value;
+					programObject.getType.style.fontSize = programObject.getFontSize;
+					console.log(programObject.getFontSize)
+				}
+				// function ENDS; we leave off the last comma just like how you would in an array
+			}
+			// program object ENDS
+
+			// start the prograaam yaaay
+			programObject.init();
+			// when making an object like this, most devs just use the word 'app' rather than smth like programObject bc app is shorter and easier to write (figures)- just keeping programObject to have a more literal example of how this works :D but will not for future at least
+
+		});
+		// doc ready function ENDS
+
+	</script>
+</body>
+</html>
