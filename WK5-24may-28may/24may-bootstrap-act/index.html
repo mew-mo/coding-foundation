@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Bootstrap UI</title>
+  <link rel="stylesheet" href="css/font-awesome.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body>
+  <h1>Hello World...</h1>
+
+    <!-- Tooltips help users identify elements that are unclear by hovering to see info-->
+    <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Hi Trinity">
+      Tooltip on top
+    </button>
+    <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="left" title="Howdy Lucy">
+      Tooltip on right
+    </button>
+    <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Tooltip on bottom">
+      Tooltip on bottom
+    </button>
+    <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="left" title="Tooltip on left">
+      Tooltip on left
+    </button>
+    <!-- Tooltips END -->
+
+    <!-- Toasts -->
+    <button type="button" class="btn btn-primary" id="liveToastBtn">Show live toast</button>
+
+    <div class="position-fixed bottom-0 right-0 p-3" style="z-index: 5; right: 0; bottom: 0;">
+    <div id="liveToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true" data-delay="2000">
+      <div class="toast-header">
+        <strong class="mr-auto">This is a toast...</strong>
+        <small>25 minutes ago.....</small>
+        <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="toast-body">
+         A toast message.
+      </div>
+    </div>
+    </div>
+    <!-- Toasts END -->
+
+    <!-- Popover Example -->
+    <button type="button" class="btn btn-lg btn-danger" data-toggle="popover" title="Alert Message" data-content="Hello how are you today?">Click to toggle popover</button>
+    <!-- Popover Example ENDS -->
+
+    <!-- Applying a tooltip to an icon -->
+    <div>
+      <i class="fa fa-camera-retro fa-5x" id="screenshot" data-toggle="tooltip" data-placement="bottom" title="Take a screen shot"></i>
+    </div>
+    <!-- Applying a tooltip to an icon ENDS -->
+
+  <script src="js/jquery.js"></script>
+  <script src="js/popper.js"></script>
+  <script src="js/bootstrap.js"></script>
+  <script type="text/javascript">
+    // Setting up Bootstrap tooltips
+    $(function () {
+      // Applying bootstrap tooltips to different elements on the page
+      $('.btn-secondary').tooltip()
+      $('#screenshot').tooltip();
+
+      // Applying the popover to anything that contains data-toggle="popover"
+      $('[data-toggle="popover"]').popover()
+
+      // Applying a toaster with an on click event
+      $('#liveToastBtn').click(function(){
+        $('.toast').toast('show')
+      });
+
+      // An event listener from the toast bootstrap docs.
+      $('.toast').on('hidden.bs.toast', function () {
+        // do something...
+        alert('after hidden....');
+      })
+
+    })
+  </script>
+</body>
+
+</html>

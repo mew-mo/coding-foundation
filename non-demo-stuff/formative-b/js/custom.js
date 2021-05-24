@@ -8,11 +8,12 @@
   };
   // images object ENDS
 
+  // app object STARTS
   var app = {
     // pulling update button from dom
     getUpdateBtn: document.querySelector('#submit'),
 
-    // pulling variables that are to be updated from dom
+    // pulling variables that are to be updated from the dom
     getCard: document.querySelector('.card'),
     getImg: document.querySelector('.card img'),
     getFont: document.querySelector('.sketch'),

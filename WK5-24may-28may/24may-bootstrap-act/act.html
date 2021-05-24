@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Bootstrap UI activity</title>
+  <link rel="stylesheet" href="css/font-awesome.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <style>
+
+    body {
+      background: #212025;
+    }
+
+    .a {
+      display: grid;
+      place-items: center;
+      height: 200px;
+      background: #bedced;
+      border: 3px solid #212025;
+    }
+
+    .col-centered {
+      float: none;
+      margin: 0 auto;
+    }
+
+    .fa {
+      /* display: flex;
+      justify-content: center; */
+      /* margin-top: 45%; */
+      font-size: 50px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="row">
+      <div class="a col-md-2 offset-md-5">
+        <i class="fa fa-play-circle-o" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="play a song"></i>
+      </div>
+    </div>
+
+    <div class="row">
+
+      <div class="a col-md-2 offset-md-3">
+        <i class="fa fa-fighter-jet" aria-hidden="true" data-toggle="tooltip" data-placement="left" title="go for a zoom"></i>
+      </div>
+
+      <div class="a col-md-2">
+        <i class="fa fa-power-off" aria-hidden="true" data-toggle="tooltip" data-placement="top"></i>
+      </div>
+
+      <div class="a col-md-2">
+        <i class="fa fa-bath" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="start the tub"></i>
+      </div>
+
+    </div>
+    <div class="row">
+      <div class="a col-md-2 offset-md-5">
+        <i class="fa fa-question-circle" aria-hidden="true" data-toggle="tooltip" data-placement="bottom" title="help"></i>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="js/jquery.js"></script>
+  <script src="js/popper.js"></script>
+  <script src="js/bootstrap.js"></script>
+  <script src="js/custom.js"></script>
+</body>
+
+</html>
