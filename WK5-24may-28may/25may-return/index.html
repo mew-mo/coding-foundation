@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>returning</title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+
+  // var sentence = ['yo ', 'up ', 'whats ', 'bro '];
+  //
+  // function a () {
+  //   console.log('beeboo');
+  //   var obj = {};
+  //   var hidden = 'a sentence yo';
+  //   var second = ' hidden in the function wow';
+  //
+  //   obj.hidden = hidden;
+  //   obj.second = second;
+  //
+  //   // return hidden + second;
+  //   return obj;
+  // }
+  //
+  // var getReturn = a();
+  // // function calll represents the return. it runs the code but reresents the return
+  //
+  // console.log(getReturn);
+  // // that logs hidden and second. suddenly we have them. wowo
+  // // whatever you return is represented by the function, so if you assign the function to a variable then you have what the function is returning. then it is YOURS
+  // // objects are a good way to get multiple things youu wabt
+
+// -----------------------------------------------------------------------------------------------------------------------------
+
+  function a () {
+    var sentence = ['hello ', 'name ', 'my ', 'is ', 'mo'];
+    // console.log(sentence[0] + sentence[2] + sentence[1] + sentence[3] + sentence[4]);
+    return sentence[0] + sentence[2] + sentence[1] + sentence[3] + sentence[4];
+  }
+
+  var getReturn = a();
+
+  console.log(getReturn);
+
+  function b () {
+    // Access the return value of a from within this function
+    // Add another word to the sentence and then return the final sentence.
+    var word = ' yay';
+    var sentence = getReturn + word;
+    return sentence;
+  }
+  // troy did a weird thing parsing the variable sentence through the brackets but i dont know about that stuff aye
+
+  var returnSentence = b();
+  console.log(returnSentence);
+
+  // access the sentence from here with a return in your function
+
+  // console.log(getReturn);
+
+  function c () {
+    var string = 'a string';
+    return function () {
+        console.log('Hello try to log me.')
+    };
+  }
+
+  var test = c();
+
+  var theLog = test();
+  // test() is the same as c()()
+
+  // console.log(c()());
+  // console.log(test());
+  // return function within function-- add extra () round brackets!!
+
+</script>
+</html>
