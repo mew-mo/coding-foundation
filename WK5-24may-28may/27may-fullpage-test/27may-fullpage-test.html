@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>fullpage better work yo</title>
+  <link rel="stylesheet" type="text/css" href="fullpage.css"/>
+  <style>
+    .section {
+      text-align:center;
+      font-size: 3em;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="fullpage">
+      <div class="section">One</div>
+      <div class="section">
+          <div class="slide" data-anchor="slide1">Two 1</div>
+          <div class="slide" data-anchor="slide2">Two 2</div>
+      </div>
+      <div class="section">Three</div>
+      <div class="section">Four</div>
+  </div>
+  <!-- This following line is only necessary in the case of using the option `scrollOverflow:true` -->
+  <script type="text/javascript" src="vendors/scrolloverflow.min.js"></script>
+
+  <script type="text/javascript" src="fullpage.js"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>
+    new fullpage('#fullpage', {
+      licenseKey: 'YOUR KEY HERE',
+      sectionsColor: ['yellow', 'orange', '#C0C0C0', '#ADD8E6'],
+    });
+  </script>
+
+</body>
+</html>
