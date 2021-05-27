@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>mapboxing bros yeaaaaah</title>
+  <script src='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js'></script>
+  <link href='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css' rel='stylesheet' />
+  <link href="mapbox://styles/mapbox/satellite-v9">
+  <style media="screen">
+
+    .marker {
+      background-image: url('mapbox-icon.png');
+      background-size: cover;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div id="map" style='width: 100%; height: 800px;'></div>
+
+  <div class="buttons">
+    <button id="flyA">fly to</button>
+    <button id="zoo">to the cuba zoo</button>
+    <button id="yamba">to yamba</button>
+    <button id="crocs">to crododile park</button>
+    <button id="home">go home</button>
+  </div>
+
+
+  <script>
+
+    // https://docs.mapbox.com/api/maps/styles/
+    // https://docs.mapbox.com/help/getting-started/
+    // https://docs.mapbox.com/mapbox-gl-js/example/
+
+    mapboxgl.accessToken = 'pk.eyJ1IjoibWV3LW1vIiwiYSI6ImNrcDRvZGlvczA0bHQyb3J2czczaXk0cTUifQ.OFSA4kWW4IMpTG6MTy6TPQ';
+    var map = new mapboxgl.Map({
+        container: 'map', // container ID
+        // style: 'mapbox://styles/mapbox/streets-v11', // style URL
+        // style: 'mapbox://styles/mapbox/dark-v10',
+        style: 'mapbox://styles/mapbox/satellite-v9', // style URL
+        // center: [168.833817, -44.941566], // starting position [lng, lat]
+        center: [174.77975924937374, -41.27908603788905], // starting position [lng, lat]
+
+        // swap the coordinates when you grab them from google maps, bc the first google maps coordinate is the second for mapbox
+        zoom: 18 // starting zoom
+    });
+    console.log(map);
+
+    var geojson = {
+      type: 'FeatureCollection',
+      features: [
+      {
+        type: 'Feature',
+        geometry: {
+          type: 'Point',
+          coordinates: [174.7765351806754, -41.27793929742888]
+        },
+        properties: {
+          title: 'Mapbox',
+          description: 'Welly Parliament :)'
+        }
+      },
+      {
+        type: 'Feature',
+        geometry: {
+          type: 'Point',
+          coordinates: [174.779799105385, -41.292276120962114]
+        },
+        properties: {
+          title: 'Mapbox',
+          description: 'maccas yo. MACCAS'
+        }
+      },
+      {
+        type: 'Feature',
+        geometry: {
+          type: 'Point',
+          coordinates: [174.77623868988232, -41.28335086982749]
+        },
+        properties: {
+          title: 'Mapbox',
+          description: 'te awe library'
+        }
+      }]
+    };
+
+    // add markers to map -- looping through geojson object
+    geojson.features.forEach(function(marker) {
+
+    // create a HTML element for each feature
+    var el = document.createElement('div');
+    el.className = 'marker';
+
+    // make a marker for each feature and add to the map
+    new mapboxgl.Marker(el)
+      .setLngLat(marker.geometry.coordinates)
+      .addTo(map);
+    });
+
+// ----------------------------------------------------------------------------------------------------------------------------------------
+
+    map.on('load', function () {
+      // Load an image from an external URL.
+      map.loadImage(
+      'https://upload.wikimedia.org/wikipedia/commons/7/7c/201408_cat.png',
+      function (error, image) {
+        if (error) throw error;
+
+        // Add the image to the map style.
+        map.addImage('cat', image);
+
+        // Add a data source containing one point feature.
+        map.addSource('point', {
+            'type': 'geojson',
+            'data': {
+            'type': 'FeatureCollection',
+            'features': [
+            {
+              'type': 'Feature',
+              'geometry': {
+              'type': 'Point',
+              'coordinates': [168.833817, -44.941566]
+              }
+            }]
+          }
+        });
+
+        // Add a layer to use the image to represent the data.
+        map.addLayer({
+                'id': 'points',
+                'type': 'symbol',
+                'source': 'point', // reference the data source
+                'layout': {
+                'icon-image': 'cat', // reference the image
+                'icon-size': 0.25
+                }
+              });
+            }
+        );
+    });
+
+// ----------------------------------------------------------------------------------------------------------------------------------------
+
+    document.getElementById('flyA').addEventListener('click', function () {
+      // Fly to a random location by offsetting the point -74.50, 40
+      // by up to 5 degrees.
+      map.flyTo({
+        center: [
+          -74.5 + (Math.random() - 0.5) * 10,
+          40 + (Math.random() - 0.5) * 10
+        ],
+          essential: true // this animation is considered essential with respect to prefers-reduced-motion
+      });
+    });
+
+    document.getElementById('zoo').addEventListener('click', function () {
+      // Fly to a random location by offsetting the point -74.50, 40
+      // by up to 5 degrees.
+      map.flyTo({
+        center: [-82.3912756852246, 23.02975390082079],
+        essential: true // this animation is considered essential with respect to prefers-reduced-motion
+      });
+    });
+
+    document.getElementById('yamba').addEventListener('click', function () {
+      // Fly to a random location by offsetting the point -74.50, 40
+      // by up to 5 degrees.
+      map.flyTo({
+        center: [153.3642295173604, -29.43523464653542],
+        essential: true // this animation is considered essential with respect to prefers-reduced-motion
+      });
+    });
+
+    document.getElementById('crocs').addEventListener('click', function () {
+      // Fly to a random location by offsetting the point -74.50, 40
+      // by up to 5 degrees.
+      map.flyTo({
+        center: [144.77951995268876, -37.913405854805816],
+        essential: true // this animation is considered essential with respect to prefers-reduced-motion
+      });
+    });
+
+    document.getElementById('home').addEventListener('click', function () {
+      // Fly to a random location by offsetting the point -74.50, 40
+      // by up to 5 degrees.
+      map.flyTo({
+        center: [168.833817, -44.941566],
+        essential: true, // this animation is considered essential with respect to prefers-reduced-motion
+        zoom: 17
+      });
+    });
+
+  </script>
+
+</body>
+</html>

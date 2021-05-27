@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="src/jquery.fullpage.css">
+  <style>
+    button {
+      position: fixed;
+      top: 10px;
+      z-index: 99999
+    }
+    #btnOne {
+      right: 150px;
+    }
+    #jump {
+      width: 100px;
+      left: 50%;
+      margin-left: -50px; /* Negative half of width. */
+    }
+    .section {
+      font-size: 120px;
+    }
+  </style>
+</head>
+<body>
+  <div id="fullpage">
+  	<div class="section">A</div>
+  	<div class="section">B</div>
+  	<div class="section">C</div>
+  	<div class="section">D</div>
+  </div>
+  <button id="btnOne">Go Down</button>
+  <button id="jump">Jump</button>
+  <button id="btnTwo">Go Up</button>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+  <script src="src/jquery.fullpage.js"></script>
+  <script>
+      $(document).ready(function() {
+      	$('#fullpage').fullpage({
+      		//Navigation
+      		menu: '#menu',
+      		lockAnchors: true,
+      		anchors:['firstPage', 'secondPage'],
+      		navigation: true,
+      		navigationPosition: 'right',
+      		navigationTooltips: ['firstSlide', 'secondSlide'],
+      		showActiveTooltip: true,
+      		slidesNavigation: true,
+      		slidesNavPosition: 'bottom'
+      	});
+
+        // Click Events Fullpage.js provides an API
+        $('#btnOne').click(function (){
+          // To move down one slide...
+          $.fn.fullpage.moveSectionDown();
+        });
+
+        $('#btnTwo').click(function (){
+          // To move up one slide
+          $.fn.fullpage.moveSectionUp();
+        });
+
+        $('#jump').click(function (){
+          // Jump to a particular slide
+          $.fn.fullpage.moveTo(3);
+        });
+        //Which is the same as
+
+      });
+      // document ENDS
+
+  </script>
+</body>
+</html>
