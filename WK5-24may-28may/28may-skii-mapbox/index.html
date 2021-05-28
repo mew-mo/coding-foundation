@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>skiing time yeah buddy</title>
+  <script src='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js'></script>
+  <link href='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css' rel='stylesheet' />
+  <link href="mapbox://styles/mapbox/satellite-v9">
+  <style>
+    .marker {
+      background-image: url('marker.png');
+      background-size: cover;
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="map" style='width: 100%; height: 800px;'></div>
+  <button id="coronet">coronet peak GO!</button>
+  <button id="remarks">remarks GO!</button>
+  <button id="cardrona">cardrona peak GO!</button>
+
+  <script src="custom.js"></script>
+</body>
+</html>

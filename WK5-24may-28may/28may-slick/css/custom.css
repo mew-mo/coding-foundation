@@ -1,0 +1,23 @@
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+div {
+  height: 100vh;
+  width: 100vw;
+}
+
+.a {
+  background: #b3cbf2;
+}
+
+.b {
+  background: rgb(241, 181, 204);
+}
+
+.c {
+  background: #eedaad;
+}
