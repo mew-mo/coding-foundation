@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<style>
+		body {
+			height: 5000px;
+		}
+		.div-a,
+		.div-b,
+		.div-c,
+		.div-d,
+		.box {
+			background-color: #efefef;
+			margin: 15px;
+			width: 250px;
+			height: 250px;
+			float: left;
+			font-size: 35px;
+		}
+		.holder {
+			overflow: auto;
+		}
+		.input-holder {
+			width: 5em;
+			margin: 0 auto;
+			margin-top: 40px;
+			margin-bottom: 40px;
+		}
+		button.btn {
+			display: block;
+			width: 140px;
+			margin: 0 auto;
+		}
+	</style>
+	<title>arguments and parameters!</title>
+</head>
+<body>
+	<div class="holder">
+		<div class="div-a">DIV A</div>
+		<div class="div-b">DIV B</div>
+		<div class="div-c">DIV C</div>
+		<div class="div-d">DIV D</div>
+	</div>
+
+		<button class="btn btn-primary" id="clicked">CLICK ME</button>
+
+	<div class="holder">
+		<div class="option-a box">Option A</div>
+		<div class="option-b box">Option B</div>
+		<div class="option-c box">Option C</div>
+	</div>
+
+	<div class="input-holder">
+		<input type="text" id="numberOfPeople" placeholder="how many people?">
+	</div>
+
+	<button class="btn btn-primary" id="clickedPeople">Process</button>
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<script>
+		// Custom js here
+		(function() {
+			'use strict';
+
+			// PARAMETER -------------------------------
+			function multiply (a,b) {
+				// a AND b are PARAMETERS! they are used when you're setting things up in the structure of your function. they represent variables! an argument is Different
+				var total = a * b;
+				// console.log(total);
+				return total;
+			}
+
+			function print (word) {
+				console.log(word);
+				// within the function, word is used again. word is the parameter. the log references the parameter inside the function.
+			}
+
+			// ARGUMENT -------------------------------
+			print('hello');
+			// this is an argument-- an argument is when you CALL the function and GIVE the function real data when you call it. you're sending something to the function. This is what makes a function more dynamic, and helps reduce code.
+			multiply(5,6);
+			// here we are multiplying >:0 5 and 6 are ARGUMENTS
+
+			// to see the return value i have to LOG the indication of the function.
+			var getReturn = multiply(5,6);
+			// this is our return . i should use more returns apparently. sadgehappysadge >:()
+			console.log(multiply(5,6));
+
+
+			// --------------------------------------------------------------
+			// create click event
+			// hide all divs
+
+			var btn = document.querySelector('#clicked');
+
+			btn.onclick = function() {
+				console.log('yesworks');
+				hideStuff('.div-a, .div-b, .div-c', 4000);
+				// can reference multiple elements to a single parameter-- div-a and div-b (+more) go to els wowow
+			}
+
+			function hideStuff(els, time) {
+				$(els).hide(time);
+			}
+
+		}());
+	</script>
+</body>
+</html>
